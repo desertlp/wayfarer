@@ -3,7 +3,9 @@ from . import views
 
 urlpatterns = [
     # Home
+    path('', views.home, name="home"), 
     # About 
+    path('about/', views.about, name="about"), 
         # Render a blank template
     # City Index
         # Post(s) Loops
