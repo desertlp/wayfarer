@@ -102,7 +102,7 @@ You will be evaluated on the following measures:
 - **User Experience:** Ensure a pleasing and logical user experience. Use a framework like Bootstrap to enhance and ease your CSS styling. **For this project, please choose a framework other than Materialize**.
 - **Responsive Design:** Make sure your app looks great on a phone or tablet.
 - **Heroku:** Deploy your app to Heroku. Ensure no app secrets are exposed.
-- **Github:** Projects must have a minimum of 60 specific commits.
+- **Github:** Projects must have a mipwsnimum of 60 specific commits.
 
 
 ## Teams
