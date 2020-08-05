@@ -104,6 +104,7 @@ FORMS
 
 .form-container {
     width: 100vw; 
+    height: 90vh; 
     display: flex; 
     justify-content: center;
     align-items: center;
@@ -190,6 +191,7 @@ MEDIA QUERY
 */
 
 @media screen and (max-width: 375px) {
+    /* HOME PAGE */
     h1 {
       font-size: 30px;
     }
