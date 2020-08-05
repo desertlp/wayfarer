@@ -1,18 +1,66 @@
 {% extends 'base.html' %}
 {% block content %}
+    <div class="main-container">
+        <div class="profile-container ">
 
-    <h1>Profile Page</h1>
+            <div class="">
+                <img class="profile-img" src="https://cdn.britannica.com/36/162636-050-932C5D49/Colosseum-Rome-Italy.jpg" alt="Image">
+            </div>
+            <div class="card bg-light">
+                <div class="card-header">
+                    <h5>{{ user.username }}</h5>
+                </div>
+                <div class="card-body">
+                    <div class="card-title">City: {{ user.profile.home_city }}</div>
+                    <div class="card-title">Email: {{ user.email }}</div>
+                    <p class="card-text"><!--maybe add more info?--></p>
+                </div>
+                <a href="{% url 'edit_profile' %}">
+                    <button class="btn" type="button" >Edit Profile</button>
+                </a>
+            </div>
+
+        </div>
+        <div class="profile-container"> 
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="../static/images/london.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Post</h5>
+                    <p class="card-text">Saepe eum pariatur exercitationem a impedit et, exercitationem ullam dolores nisi inventore minus optio, maxime inventore doloribus facere eveniet voluptas, commodi repellendus reiciendis deserunt cupiditate similique esse delectus molestiae facere fugiat.</p>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="../static/images/rome.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Post</h5>
+                    <p class="card-text">Saepe eum pariatur exercitationem a impedit et, exercitationem ullam dolores nisi inventore minus optio, maxime inventore doloribus facere eveniet voluptas, commodi repellendus reiciendis deserunt cupiditate.</p>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="../static/images/tokyo.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Post</h5>
+                    <p class="card-text">Saepe eum pariatur exercitationem a impedit et, exercitationem ullam dolores nisi inventore minus optio, maxime inventore doloribus facere eveniet voluptas.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+{% endblock %}
+
+<form method="POST" enctype="multipart/form-data">
+    {% comment %} enctype="multipart/form-data is for the image upload  {% endcomment %}
+    {% csrf_token %}
+    {{ uform.as_p }}
+    {{ pform.as_p }}
+    <button class="btn" type="submit">Edit Profile</button>
+</form>
+
+<h1>Profile Page</h1>
     <p>{{ user.username }}</p>
     <p>{{ user.email }}</p>
     <p>{{ user.profile.home_city }}</p>
     <img src="{{ user.profile.image.url }}">
-
-    <form method="POST" enctype="multipart/form-data">
-        {% comment %} enctype="multipart/form-data is for the image upload  {% endcomment %}
-        {% csrf_token %}
-        {{ uform.as_p }}
-        {{ pform.as_p }}
-        <button class="btn" type="submit">Edit Profile</button>
-    </form>
-
-{% endblock %}
