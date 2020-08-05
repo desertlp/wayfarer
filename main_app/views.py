@@ -18,9 +18,7 @@ def signup(request):
     'form': form, 
     'error': error,
   }
-    # initalized and error variable
   if request.method == 'POST':
-        # create and instance of that user from the form
     form = UserCreationForm(request.POST)
     if form.is_valid(): 
       user = form.save()
@@ -38,6 +36,15 @@ def signup(request):
       # this was created by django, must use the form
     return render(request, 'registration/signup.html', context)
 
+def profile(request): 
+  user = User.objects.filter(user=user_id)
+  profile = Profile.objects.filter(user=user_id)
+  context = {
+    'profile': profile,
+    'user': user
+  }
+  # return render(request, 'registration/profile.html', context)
+  return HttpResponse('profile page, profile and user model')
 
 
 
@@ -53,7 +60,7 @@ def about(request):
 def cities(request): 
     cities = City.objects.all()
     context = {
-        'cities': cities
+        'cities': cities,
     }
     # return render(request, 'cities.html', context)
     return HttpResponse('cities')
