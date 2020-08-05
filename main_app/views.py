@@ -59,3 +59,20 @@ def cities(request):
     # return render(request, 'cities.html', context)
     return HttpResponse('cities')
 
+
+def post(request, post_id): 
+    post = Post.objects.get(id=post_id)
+    context = {
+        'post': post,
+    }
+    return render(request, 'post/show.html', context)
+    # return HttpResponse('post show page')
+
+def edit_post(request): 
+# def edit_post(request, post_id): 
+    # post = Post.objects.get(id=post_id)
+    # context = {
+    #     'post': post,
+    # }
+    # return render(request, 'post/show.html', context)
+    return HttpResponse('post edit page')
