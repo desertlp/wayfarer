@@ -122,7 +122,7 @@ STATIC_URL = '/static/'
 
 LOGIN_URL = 'login'
 
-LOGIN_REDIRECT_URL = '/cities/'
+LOGIN_REDIRECT_URL = '/profile/'
     # on login it takes us to the cats inde page whereas otherwise you would have gone to the /account/login page (which would be a separate application, but we didnt do that in this app, so I may need to look this up and learn it on the side)
 LOGOUT_REDIRECT_URL = '/'
     # on logout, will take us to the homepage as opposed to the django loutout template page (different styling, is confusing to users)111
