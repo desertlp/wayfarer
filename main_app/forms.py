@@ -19,7 +19,7 @@ class UserUpdateForm(forms.ModelForm):
         # default is required = True
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password', 'password')
+        fields = ('username', 'first_name', 'last_name', 'email')
 
 
 
