@@ -41,6 +41,7 @@ CAROUSEL
     height:360px;
 }
 
+<<<<<<< HEAD
 
 /********************************************************************************************************** 
 Profile 
@@ -49,10 +50,20 @@ Profile
     display: flex;
     width: 85vw;
     background: #40515D;
+=======
+/********************************************************************************************************** 
+FORMS
+*/
+
+.form-container {
+    width: 100vw; 
+    display: flex; 
+>>>>>>> submaster
     justify-content: center;
     align-items: center;
 }
 
+<<<<<<< HEAD
 .profile-img{
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -84,4 +95,15 @@ footer{
 footer div {
     text-align: center;
     display: inline;
+=======
+.form-panel {
+    width: 640px; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.error-message {
+    color: red; 
+>>>>>>> submaster
 }

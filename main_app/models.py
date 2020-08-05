@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from PIL import Image
+    # import pillow libary
 
 # Create your models here.
 
@@ -15,11 +17,21 @@ class City(models.Model):
 class Profile(models.Model): 
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     home_city = models.CharField(max_length=100)
-    country = models.CharField(default="USA", max_length=150)
-    profile_img = models.URLField(blank=False)
+    image = models.ImageField(default='default.jpg', upload_to='profile_pics')
 
     def __str__(self): 
-        return f"{self.user.username} profile_id: {self.id} user_id: {self.user.id}"
+        return f"{self.user.username} Profile"
+    
+    def save(self): 
+        # keeps us from having gigantic files uploaded to our db and making our site run super slow
+        super().save()
+        img = Image.open(self.image.path)
+        if img.height > 300 or img.width > 300:
+            output_size = (300, 300)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
+
+
 
 class Post(models.Model): 
     title = models.CharField(blank=False, max_length=100)
@@ -41,3 +53,4 @@ class Comment(models.Model):
 
     def __str__(self): 
         return self.body
+ 
