@@ -1,3 +1,24 @@
+/********************************************************************************************************** 
+NAV 
+*/
+.navbar-light {
+    
+    background: #011627 ;
+    color: #FDFFFC;
+}
+.navbar-light .navbar-brand {
+    color: #FDFFFC;
+}
+.navbar-light .navbar-brand:hover {
+    color: #FF00FF;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    color: #FDFFFC;
+}
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #FF00FF;
+  }
 
 
 /********************************************************************************************************** 
@@ -20,3 +41,22 @@ CAROUSEL
     height:360px;
 }
 
+
+/********************************************************************************************************** 
+Footer 
+*/
+footer{
+    height: 5vh;
+    width: 100%;
+    background: #40515D;
+    color: #FDFFFC;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+}
+
+footer div {
+    text-align: center;
+    display: inline;
+}

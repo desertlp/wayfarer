@@ -16,24 +16,25 @@
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>
+  <!-- Animate.style CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
   <!-- Main CSS -->
   <link rel="stylesheet" href="{% static 'styles/style.css' %}">
   <!-- Main JS -->
   <script src="{% static 'js/app.js' %}"></script>
-  <!-- Animate.style CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+
 </head>
 <body>
   <header>
     
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+    <nav class="navbar navbar-expand-md navbar-light ">
+        <a class="navbar-brand" href="#">Surveyor</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-            <li class="nav-item active">
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
                 <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
@@ -53,7 +54,29 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Logout</a>
-            </li>            
+            </li>
+              <!-- Dynamic -->
+              <!-- Keep about and home outside loop-->
+            {% comment %} {% if user.is_authenticated = false %}
+              <li>
+                <a href="{% url 'login' %}">Log In</a>
+              </li>
+              <li>
+                <a href="{% url 'signup' %}">Sign Up</a>
+              </li>
+            {% else %}
+              <li>
+                <a href="{% url 'profile' %}">Profile</a>
+              </li>
+              <li>
+                <a href="{% url 'cities' %}">Cities</a>
+              </li>
+              <li>
+                <a href="{% url 'logout' %}">Log Out</a>
+              </li>
+            {% endif %} {% endcomment %}
+
+
             </ul>
         </div>
     </nav>
@@ -63,8 +86,8 @@
     {% block content %}
     {% endblock %}
   </main>
-  <footer class="page-footer">
-    <div class="right">This is a footer</div>
+  <footer>
+    <div>This is a footer</div>
   </footer>
 </body>
 </html>
