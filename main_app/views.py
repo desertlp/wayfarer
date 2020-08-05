@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from .models import City, Post, Comment, User, Profile
-from .forms import SignUpForm, UserProfileForm, UserUpdateForm, ProfileUpdateForm
+from .forms import SignUpForm, UserProfileForm, UserUpdateForm, ProfileUpdateForm, PostEditForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 
@@ -40,10 +40,6 @@ def edit_profile(request):
   return render(request, 'profile/edit.html', context)
 
 
-
-
-
-
 # HOME PAGE 
 def home(request): 
     return render(request, 'home.html')
@@ -59,7 +55,6 @@ def cities(request):
     # return render(request, 'cities.html', context)
     return HttpResponse('cities')
 
-
 def post(request, post_id): 
     post = Post.objects.get(id=post_id)
     context = {
@@ -68,11 +63,14 @@ def post(request, post_id):
     return render(request, 'post/show.html', context)
     # return HttpResponse('post show page')
 
-def edit_post(request): 
-# def edit_post(request, post_id): 
-    # post = Post.objects.get(id=post_id)
-    # context = {
-    #     'post': post,
-    # }
-    # return render(request, 'post/show.html', context)
-    return HttpResponse('post edit page')
+def edit_post(request, post_id):
+    post = Post.objects.get(id=post_id) 
+    if request.method == 'POST':
+          edited_post = PostEditForm(request.POST, instance=post)
+          if edited_post.is_valid():
+            post = edited_post.save()
+            return redirect('post', post.id)
+    else: 
+        form = PostEditForm(instance=post)
+        return render(request, 'post/edit.html', {'form': form})
+
