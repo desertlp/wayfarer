@@ -24,6 +24,20 @@ CAROUSEL
 FORMS
 */
 
+.form-container {
+    width: 100vw; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.form-panel {
+    width: 640px; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
 .error-message {
     color: red; 
 }
