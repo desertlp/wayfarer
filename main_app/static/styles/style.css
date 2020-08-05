@@ -2,6 +2,10 @@
 NAV 
 */
 
+nav {
+    max-height: 4vh;
+}
+
 .navbar-light {
     
     background: #011627 ;
@@ -39,6 +43,10 @@ CAROUSEL
 .carousel-image {
     width:640px;
     height:360px;
+}
+
+.carousel-item-name {
+    font-size: 32px; 
 }
 
 /********************************************************************************************************** 
@@ -88,21 +96,93 @@ FORMS
 }
 
 /********************************************************************************************************** 
+HOME PAGE
+*/
+
+/* LOGO */
+
+.logo-container {
+    width: 100vw; 
+    height: 12vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #40515D;
+}
+
+h1 {
+    font-size: 50px; 
+    color: white; 
+}
+
+/* DESCRIPTIVE PARAGRAPHS */
+
+.body-container {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    background-color: #011627;
+    height: 200px; 
+}
+
+.paragraph-container {
+    height: 200px; 
+    padding: 35px 20px 20px 20px; 
+}
+
+.body-content {
+    font-size: 12px; 
+    color: white; 
+}
+
+.heading {
+    font-size: 20px; 
+    color: white;
+}
+
+/********************************************************************************************************** 
 Footer 
 */
 
 footer{
-    height: 5vh;
+    height: 4vh;
     width: 100%;
     background: #40515D;
     color: #FDFFFC;
-    display: flex;
-    align-items: center;
-    position: absolute;
-    bottom: 0;
+    /* position: absolute;
+    bottom: 0; */
+    position: relative; 
+    text-align: center; 
 }
 
-footer div {
-    text-align: center;
-    display: inline;
+.footer-content {
+    padding: 2px 0 0 0; 
+    font-size: 15px; 
 }
+
+/********************************************************************************************************** 
+MEDIA QUERY
+*/
+
+@media screen and (max-width: 375px) {
+    h1 {
+      font-size: 30px;
+    }
+    .carousel-item-name {
+        font-size: 25px; 
+    }
+    .navbar-toggler {
+        color: white; 
+    }
+    .body-container {
+        height: 60vh; 
+        display: inline-block; 
+    }
+    .paragraph-container {
+        width: 100vw; 
+        height: 20vh; 
+    }
+    footer {
+        position: relative; 
+    }
+  }
