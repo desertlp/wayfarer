@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1> Edit A Post Page</h1>
+    <form method="POST">
+        {% comment %} if we dont provide and action (path) the form will submit to the current path {% endcomment %}
+        {% csrf_token%}
+        {{ form.as_p }}
+            {% comment %} wraps each field in a paragraph tag and displays it on the page {% endcomment %}
+        <button class="btn" type="submit">Save Edits</button>
+    </form>
+{% endblock %}
