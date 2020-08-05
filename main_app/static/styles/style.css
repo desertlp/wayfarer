@@ -1,11 +1,8 @@
 /********************************************************************************************************** 
 Universal 
 */
-main{
-display: flex;
-align-content: center;
-}
-.main-container{
+
+.main-container-1 {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,8 +10,7 @@ align-content: center;
     background: #40515D;
     margin-left: auto;
     margin-right: auto 
-    
-}
+} 
 
 
 
