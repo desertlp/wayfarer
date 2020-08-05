@@ -16,5 +16,6 @@ urlpatterns = [
     # Post Show Page
     # Sign Up
     path('accounts/signup', views.signup, name='signup'),
-    path('profile/', views.profile, name='profile')
+    path('profile/', views.profile, name='profile'),
+    # path('profile/<int:user_id>/edit', views.edit_profile, name='edit_profile'),
 ]
