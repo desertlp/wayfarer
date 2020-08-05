@@ -11,7 +11,7 @@
         <div>Author: {{ post.user.username }}</div>
         <p>{{ post.body }}Saepe eum pariatur exercitationem a impedit et, exercitationem ullam dolores nisi inventore minus optio, maxime inventore doloribus facere eveniet voluptas, commodi repellendus reiciendis deserunt cupiditate similique esse delectus molestiae facere fugiat.</p>
 
-        <a href="{% url 'edit_post' %}">
+        <a href="{% url 'edit_post' post.id %}">
             <button class="btn" type="button" >Edit Profile</button>
         </a>
 
