@@ -8,13 +8,12 @@ urlpatterns = [
     path('about/', views.about, name="about"), 
         # Render a blank template
     # City Index
-        # Post(s) Loops
-            # Post Comments Loop??? 
+    path('cities/', views.cities, name="cities"),
+        # city.posts
+        # event listener to display a city to the right on click? 
     # Add Post Page
         # City automatically applied
     # Post Show Page
-        # Post Comments Loop
-    # Profile
-    # Login/SignUp 
-
+    # Sign Up
+    path('accounts/signup', views.signup, name='signup'),
 ]
