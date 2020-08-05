@@ -1,6 +1,7 @@
 /********************************************************************************************************** 
 NAV 
 */
+
 .navbar-light {
     
     background: #011627 ;
@@ -19,7 +20,6 @@ NAV
 .navbar-light .navbar-nav .nav-link:hover {
     color: #FF00FF;
   }
-
 
 /********************************************************************************************************** 
 CAROUSEL 
@@ -41,29 +41,16 @@ CAROUSEL
     height:360px;
 }
 
-<<<<<<< HEAD
-
 /********************************************************************************************************** 
 Profile 
 */
+
 .profile-container{
     display: flex;
     width: 85vw;
     background: #40515D;
-=======
-/********************************************************************************************************** 
-FORMS
-*/
-
-.form-container {
-    width: 100vw; 
-    display: flex; 
->>>>>>> submaster
-    justify-content: center;
-    align-items: center;
 }
 
-<<<<<<< HEAD
 .profile-img{
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -72,15 +59,38 @@ FORMS
     margin: 20px;	
 }
 
-.card{
+.card {
     width: 500px;
     height: 375px;
     margin: 20px;
 }
 
 /********************************************************************************************************** 
+FORMS
+*/
+
+.form-container {
+    width: 100vw; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.form-panel {
+    width: 640px; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.error-message {
+    color: red; 
+}
+
+/********************************************************************************************************** 
 Footer 
 */
+
 footer{
     height: 5vh;
     width: 100%;
@@ -95,15 +105,4 @@ footer{
 footer div {
     text-align: center;
     display: inline;
-=======
-.form-panel {
-    width: 640px; 
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-}
-
-.error-message {
-    color: red; 
->>>>>>> submaster
 }
