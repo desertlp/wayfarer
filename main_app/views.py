@@ -13,19 +13,11 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-<<<<<<< HEAD
-            return redirect('home')
-    else:
-        form = SignUpForm()
-    return render(request, 'register/signup.html', {'form': form})
- 
-=======
             return redirect('profile')
     else:
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})
 
->>>>>>> submaster
 # @login_required
 def profile(request): 
   return render(request, 'profile/profile.html')
