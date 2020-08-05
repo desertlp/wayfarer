@@ -24,8 +24,19 @@
 CAROUSEL 
 */
 
+.carousel {
+    width:640px;
+    height:360px;
+}
+
 .carousel-container {
     display: flex; 
     align-items: center;
     justify-content: center;
 }
+
+.carousel-image {
+    width:640px;
+    height:360px;
+}
+
