@@ -1,42 +1,70 @@
 from django.shortcuts import render, HttpResponse, redirect
-from .models import City, Profile, Post, Comment
-from django.contrib.auth.forms import UserCreationForm
+from .models import City, Profile, Post, Comment, User
+# from django.contrib.auth.forms import UserCreationForm
+  # idk if this is the deal but I think it will work
+from .forms import UserCreationForm, UserProfileForm
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
     # https://docs.djangoproject.com/en/1.11/_modules/django/contrib/auth/decorators/
     # @login_required
 
-# Create your views here.
-
 # ---------- AUTH ----------
 
 def signup(request): 
+  # http://localhost:8000/accounts/signup
   error = None
-    # change this based on if statements and errors that we expect
   form = UserCreationForm()
+  profile_form = UserProfileForm ()
   context = {
     'form': form, 
+    'profile_form': profile_form,
     'error': error,
   }
-    # initalized and error variable
   if request.method == 'POST':
-        # create and instance of that user from the form
     form = UserCreationForm(request.POST)
-    if form.is_valid(): 
-      user = form.save()
+    profile_form = UserProfileForm(request.POST)
+    if form.is_valid() and profile_form.is_valid(): 
+      user = form.save(commit=False)
+      profile = profile_form.save(commit=False)
+        # dont commit bc need to merge user and profile 
+      profile.user = user
+      profile.user.save()
       login(request, user)
-        # login is a django method, does everythign behind the scenes
-        # need to import this method: from django.contrib.auth import login
       return redirect('cities')
     else:
-          # global error 'User account already exists' this doesnt work
+          context = {
+            'form': form, 
+            'profile_form': profile_form,
+            'error': error,
+          }
           return render(request, 'registration/signup.html', context)
-          return render(request, 'registration/signup.html', {'form': form, 'error': form.errors})
   else: 
-    # aka if it is a get request, we need to send the new user sign up form 
-    # import this from django: from django.contrib.auth.forms import UserCreationForm
-      # this was created by django, must use the form
     return render(request, 'registration/signup.html', context)
+
+# ---------- PROFILE ----------
+
+
+def profile(request): 
+  # http://localhost:8000/profile/
+  # user = User.objects.filter()
+  profile = Profile.objects.all()
+  user = User.objects.all()
+  context = {
+    'profile': profile,
+    'user': user,
+  }
+  return render(request, 'profile/profile.html', context)
+  # return HttpResponse('profile page, profile and user model')
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -53,7 +81,7 @@ def about(request):
 def cities(request): 
     cities = City.objects.all()
     context = {
-        'cities': cities
+        'cities': cities,
     }
     # return render(request, 'cities.html', context)
     return HttpResponse('cities')
