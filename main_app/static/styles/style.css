@@ -43,6 +43,31 @@ CAROUSEL
 
 
 /********************************************************************************************************** 
+Profile 
+*/
+.profile-container{
+    display: flex;
+    width: 85vw;
+    background: #40515D;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-img{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 500px!important;
+    height: 375px;
+    margin: 20px;	
+}
+
+.card{
+    width: 500px;
+    height: 375px;
+    margin: 20px;
+}
+
+/********************************************************************************************************** 
 Footer 
 */
 footer{
