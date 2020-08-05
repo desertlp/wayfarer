@@ -43,29 +43,18 @@ from django.contrib.auth.decorators import login_required
 
 # ---------- AUTH NEW CODE ---------
 def signup(request):
-    error = None
     if request.method == 'POST':
-      form = SignUpForm(request.POST)
-        # replaced the user creation form
-      if form.is_valid():
-          user = form.save()
-          print(request.user)
-          user.refresh_from_db()
-            # load the profile instance created by the signal
-            # refresh why? we have a synchronism issue here. It is easily solved by calling the user.refresh_from_db() method
-            # This will cause a hard refresh from the database, which will retrieve the profile instance.
-          username = form.cleaned_data.get('username')
-          raw_password = form.cleaned_data.get('password1')
-          user = authenticate(username=username, password=raw_password)
-          user.save()
-          raw_password = form.cleaned_data.get('password')
-          user = authenticate(username=user.username, password=raw_password)
-          login(request, user)
-          return redirect('cities')
-            # this is per kenny's request, but negates sprint 1 requirement
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('home')
     else:
-      form = SignUpForm()
-      return render(request, 'registration/signup.html', {'form': form})
+        form = SignUpForm()
+    return render(request, 'register/signup.html', {'form': form})
  
 # @login_required
 def profile(request): 
