@@ -21,8 +21,6 @@ class UserUpdateForm(forms.ModelForm):
         model = User
         fields = ('username', 'first_name', 'last_name', 'email')
 
-
-
 class UserProfileForm(forms.ModelForm):
     home_city = forms.CharField(max_length=100, required=False)
     profile_img = forms.URLField(max_length=1000, required=False)
