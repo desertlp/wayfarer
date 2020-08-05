@@ -1,6 +1,8 @@
 from django.shortcuts import render, HttpResponse, redirect
-from .models import City, Profile, Post, Comment
-from django.contrib.auth.forms import UserCreationForm
+from .models import City, Profile, Post, Comment, User
+# from django.contrib.auth.forms import UserCreationForm
+  # idk if this is the deal but I think it will work
+from .forms import UserCreationForm, UserProfileForm
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
     # https://docs.djangoproject.com/en/1.11/_modules/django/contrib/auth/decorators/
@@ -11,40 +13,59 @@ from django.contrib.auth.decorators import login_required
 # ---------- AUTH ----------
 
 def signup(request): 
+  # http://localhost:8000/accounts/signup
   error = None
-    # change this based on if statements and errors that we expect
   form = UserCreationForm()
+  profile_form = UserProfileForm ()
   context = {
     'form': form, 
+    'profile_form': profile_form,
     'error': error,
   }
   if request.method == 'POST':
     form = UserCreationForm(request.POST)
-    if form.is_valid(): 
+    profile_form = UserProfileForm(request.POST)
+
+
+    if form.is_valid() and profile_form.is_valid(): 
       user = form.save()
+      profile = profile_form.save(commit=False)
+        # dont commit bc need to merge user and profile 
+      profile.user = user
+      profile.save()
       login(request, user)
-        # login is a django method, does everythign behind the scenes
-        # need to import this method: from django.contrib.auth import login
       return redirect('cities')
     else:
-          # global error 'User account already exists' this doesnt work
           return render(request, 'registration/signup.html', context)
           return render(request, 'registration/signup.html', {'form': form, 'error': form.errors})
   else: 
-    # aka if it is a get request, we need to send the new user sign up form 
-    # import this from django: from django.contrib.auth.forms import UserCreationForm
-      # this was created by django, must use the form
     return render(request, 'registration/signup.html', context)
 
+
+
+
 def profile(request): 
-  user = User.objects.filter(user=user_id)
-  profile = Profile.objects.filter(user=user_id)
+  # http://localhost:8000/profile/
+  # user = User.objects.filter()
+  profile = Profile.objects.all()
+  user = User.objects.all()
   context = {
     'profile': profile,
-    'user': user
+    'user': user,
   }
-  # return render(request, 'registration/profile.html', context)
-  return HttpResponse('profile page, profile and user model')
+  return render(request, 'profile/profile.html', context)
+  # return HttpResponse('profile page, profile and user model')
+
+
+
+
+
+
+
+
+
+
+
 
 
 
