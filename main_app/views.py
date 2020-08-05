@@ -49,6 +49,7 @@ def signup(request):
         # replaced the user creation form
       if form.is_valid():
           user = form.save()
+          print(request.user)
           user.refresh_from_db()
             # load the profile instance created by the signal
             # refresh why? we have a synchronism issue here. It is easily solved by calling the user.refresh_from_db() method
