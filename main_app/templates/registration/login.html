@@ -1,21 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-
+{% extends 'base.html' %}
+{% block content %}
     
     <h1>Surveyor User Login</h1>
-    
-    <form action="{% url 'login' %}" method="POST">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button class="btn" type="submit">Login</button>
-    
 
-</body>    
-</html>
+    <form action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn" type="submit">Login</button>
+    </form>
+
+{% endblock %}
+
+    
