@@ -1,3 +1,24 @@
+/********************************************************************************************************** 
+NAV 
+*/
+.navbar-light {
+    
+    background: #011627 ;
+    color: #FDFFFC;
+}
+.navbar-light .navbar-brand {
+    color: #FDFFFC;
+}
+.navbar-light .navbar-brand:hover {
+    color: #FF00FF;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    color: #FDFFFC;
+}
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #FF00FF;
+  }
 
 
 /********************************************************************************************************** 
@@ -20,6 +41,16 @@ CAROUSEL
     height:360px;
 }
 
+<<<<<<< HEAD
+
+/********************************************************************************************************** 
+Profile 
+*/
+.profile-container{
+    display: flex;
+    width: 85vw;
+    background: #40515D;
+=======
 /********************************************************************************************************** 
 FORMS
 */
@@ -27,10 +58,44 @@ FORMS
 .form-container {
     width: 100vw; 
     display: flex; 
+>>>>>>> submaster
     justify-content: center;
     align-items: center;
 }
 
+<<<<<<< HEAD
+.profile-img{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 500px!important;
+    height: 375px;
+    margin: 20px;	
+}
+
+.card{
+    width: 500px;
+    height: 375px;
+    margin: 20px;
+}
+
+/********************************************************************************************************** 
+Footer 
+*/
+footer{
+    height: 5vh;
+    width: 100%;
+    background: #40515D;
+    color: #FDFFFC;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+}
+
+footer div {
+    text-align: center;
+    display: inline;
+=======
 .form-panel {
     width: 640px; 
     display: flex; 
@@ -40,4 +105,5 @@ FORMS
 
 .error-message {
     color: red; 
+>>>>>>> submaster
 }
