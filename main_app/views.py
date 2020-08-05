@@ -8,8 +8,6 @@ from django.contrib.auth.decorators import login_required
     # https://docs.djangoproject.com/en/1.11/_modules/django/contrib/auth/decorators/
     # @login_required
 
-# Create your views here.
-
 # ---------- AUTH ----------
 
 def signup(request): 
@@ -25,23 +23,25 @@ def signup(request):
   if request.method == 'POST':
     form = UserCreationForm(request.POST)
     profile_form = UserProfileForm(request.POST)
-
-
     if form.is_valid() and profile_form.is_valid(): 
-      user = form.save()
+      user = form.save(commit=False)
       profile = profile_form.save(commit=False)
         # dont commit bc need to merge user and profile 
       profile.user = user
-      profile.save()
+      profile.user.save()
       login(request, user)
       return redirect('cities')
     else:
+          context = {
+            'form': form, 
+            'profile_form': profile_form,
+            'error': error,
+          }
           return render(request, 'registration/signup.html', context)
-          return render(request, 'registration/signup.html', {'form': form, 'error': form.errors})
   else: 
     return render(request, 'registration/signup.html', context)
 
-
+# ---------- PROFILE ----------
 
 
 def profile(request): 
