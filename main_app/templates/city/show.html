@@ -6,13 +6,15 @@
     <p>{{ city.img_url }}</p>
 
     {% for post in posts %}
-        <img src="../static/images/rio.jpg" alt="">
-        <h1>{{ post.title }}</h1>
-        <div>City: {{ post.city }}</div>
-        <div>Date created: {{ post.created }}</div>
-        <div>Date updated: {{ post.updated }}</div>
-        <div>Author: {{ post.user.username }}</div>
-        <p>{{ post.body }}Saepe eum pariatur exercitationem a impedit et, exercitationem ullam dolores nisi inventore minus optio, maxime inventore doloribus facere eveniet voluptas, commodi repellendus reiciendis deserunt cupiditate similique esse delectus molestiae facere fugiat.</p>
+        <a href="{% url 'post' post.id %}">
+            <img src="../static/images/rio.jpg" alt="">
+                <h1>{{ post.title }}</h1>
+            <div>City: {{ post.city }}</div>
+            <div>Date created: {{ post.created }}</div>
+            <div>Date updated: {{ post.updated }}</div>
+            <div>Author: {{ post.user.username }}</div>
+            <p>{{ post.body }}Saepe eum pariatur exercitationem a impedit et, exercitationem ullam dolores nisi inventore minus optio, maxime inventore doloribus facere eveniet voluptas, commodi repellendus reiciendis deserunt cupiditate similique esse delectus molestiae facere fugiat.</p>
+        </a>
     {% endfor %}
 
         <a href="{% url 'new_post' city.id %}">
