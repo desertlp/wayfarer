@@ -244,7 +244,12 @@ footer{
     width: 100%;
     background: #40515D;
     color: #FDFFFC;
+<<<<<<< HEAD
     position: relative;
+=======
+    position: relative; 
+    /* bottom: 0; */
+>>>>>>> submaster
     text-align: center; 
 }
 
@@ -255,6 +260,7 @@ footer{
 /********************************************************************************************************** 
 Post 
 */
+
 .post-container{
     display: flex;
     flex-direction: column;
@@ -262,23 +268,31 @@ Post
 }
 
 .post-top{
-    display: block;
-    width: 100%;
+    display: flex; 
+    justify-content: center;
+}
+
+.post-title-container {
+    text-align: center; 
+    background-color: #011627 ;
 }
 
 .post-bottom{
-    margin-top: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     display: block;
+    text-align: center;
 }
 
 #post-img{
     width: 65vw !important;
-    height: 200px;
+    height: 450h; 
 }
 
 .post-title{
     margin-top: 20px;
-    color: black;
+    margin-bottom: 20px; 
+    color: white; 
 }
 
 .post-city{
@@ -297,6 +311,35 @@ Post
     color: black;
 }
 
+.post-field-label {
+    font-weight: bold; 
+}
+
+.post-edit-button {
+    margin: 12px 0 0 0; 
+}
+
+/* EDIT POST */
+
+.edit-post-header-container {
+    text-align: center; 
+}
+
+.edit-post-header {
+    color: black; 
+    margin-top: 40px; 
+}
+
+.edit-post-form-container {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    height: 75vh; 
+}
+
+.edit-post-save-button {
+    margin-top: 15px; 
+}
 
 
 /********************************************************************************************************** 
