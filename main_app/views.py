@@ -5,11 +5,28 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 
 # AUTH ROUTES
+    # def signup(request):
+    #     if request.method == 'POST':
+    #         form = SignUpForm(request.POST)
+    #         if form.is_valid():
+    #             form.save()
+    #             username = form.cleaned_data.get('username')
+    #             raw_password = form.cleaned_data.get('password1')
+    #             user = authenticate(username=username, password=raw_password)
+    #             login(request, user)
+    #             return redirect('profile')
+    #     else:
+    #         form = SignUpForm()
+    #     return render(request, 'registration/signup.html', {'form': form})
+
+
+
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            profile = Profile(user=user)
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
@@ -18,9 +35,17 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})
+
+
+
+
+
+
+
+
 # @login_required
 def profile(request): 
-  return render(request, 'profile/profile.html')
+    return render(request, 'profile/profile.html')
 # @login_required
 def edit_profile(request):
   if request.method == 'POST':
@@ -38,7 +63,6 @@ def edit_profile(request):
     'pform': pform,
   }
   return render(request, 'profile/edit.html', context)
-
 
 # HOME PAGE 
 def home(request): 
