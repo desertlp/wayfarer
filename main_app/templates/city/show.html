@@ -1,24 +1,84 @@
 {% extends 'base.html' %}
 {% block content %}
-    <p>{{ city.name }}</p>
-    <p>{{ city.latitude }} N</p>
-    <p>{{ city.longitude }} W</p>
-    <p>{{ city.img_url }}</p>
 
-    {% for post in posts %}
-        <a href="{% url 'post' post.id %}">
-            <img src="../static/images/rio.jpg" alt="">
-                <h1>{{ post.title }}</h1>
-            <div>City: {{ post.city }}</div>
-            <div>Date created: {{ post.created }}</div>
-            <div>Date updated: {{ post.updated }}</div>
-            <div>Author: {{ post.user.username }}</div>
-            <p>{{ post.body }}Saepe eum pariatur exercitationem a impedit et, exercitationem ullam dolores nisi inventore minus optio, maxime inventore doloribus facere eveniet voluptas, commodi repellendus reiciendis deserunt cupiditate similique esse delectus molestiae facere fugiat.</p>
-        </a>
-    {% endfor %}
+<!-- CITIES INDEX MENU -->
+<div class="sidebar-container">
+<aside class="menu sidebar">
+    <p class="menu-label">
+      General
+    </p>
+    <ul class="menu-list">
+      <li><a>Dashboard</a></li>
+      <li><a>Customers</a></li>
+    </ul>
+    <p class="menu-label">
+      Administration
+    </p>
+    <ul class="menu-list">
+      <li><a>Team Settings</a></li>
+      <li>
+        <a class="is-active">Manage Your Team</a>
+        <ul>
+          <li><a>Members</a></li>
+          <li><a>Plugins</a></li>
+          <li><a>Add a member</a></li>
+        </ul>
+      </li>
+      <li><a>Invitations</a></li>
+      <li><a>Cloud Storage Environment Settings</a></li>
+      <li><a>Authentication</a></li>
+    </ul>
+    <p class="menu-label">
+      Transactions
+    </p>
+    <ul class="menu-list">
+      <li><a>Payments</a></li>
+      <li><a>Transfers</a></li>
+      <li><a>Balance</a></li>
+    </ul>
+  </aside>
+</div>
 
-        <a href="{% url 'new_post' city.id %}">
-            <button class="btn" type="button">New Post About This City</button>
-        </a>
+  {% endblock %}
 
-{% endblock %}
+
+<!-- END CITIES INDEX MENU -->
+
+{% comment %}
+
+VIEWS INFORMATION
+
+side_bar_cities = City.objects.all()
+city = City.objects.get(id=city_id)
+posts = Post.objects.filter(city_id=city_id)
+context = {
+    'city': city,
+    'posts': posts,
+    'side_bar_cities': side_bar_cities,
+}
+
+OLD SF DATA DISPLAYED
+
+<p>{{ city.name }}</p>
+<p>{{ city.latitude }} N</p>
+<p>{{ city.longitude }} W</p>
+<p>{{ city.img_url }}</p>
+
+
+{% for post in posts %}
+<a href="{% url 'post' post.id %}">
+    <img src="../static/images/rio.jpg" alt="">
+        <h1>{{ post.title }}</h1>
+    <div>City: {{ post.city }}</div>
+    <div>Date created: {{ post.created }}</div>
+    <div>Date updated: {{ post.updated }}</div>
+    <div>Author: {{ post.user.username }}</div>
+    <p>{{ post.body }}Saepe eum pariatur exercitationem a impedit et, exercitationem ullam dolores nisi inventore minus optio, maxime inventore doloribus facere eveniet voluptas, commodi repellendus reiciendis deserunt cupiditate similique esse delectus molestiae facere fugiat.</p>
+</a>
+{% endfor %}
+
+<a href="{% url 'new_post' city.id %}">
+    <button class="btn" type="button">New Post About This City</button>
+</a>
+
+{% endcomment %}

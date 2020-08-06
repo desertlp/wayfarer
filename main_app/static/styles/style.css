@@ -141,11 +141,15 @@ Profile
     margin: 10px;	
 }
 
-.profile-h5{
+.profile-h5 {
 font-size: 2em;
 font-weight: 700;
 color: #00d1b2;
 text-align: center;
+}
+
+.card-header {
+    text-align: center; 
 }
 
 .card {
@@ -365,6 +369,16 @@ Post
 
 .edit-post-save-button {
     margin-top: 15px; 
+}
+
+/********************************************************************************************************** 
+CITIES INDEX 
+*/
+
+/* SIDEBAR */
+
+.sidebar-container {
+    max-width: 33vw; 
 }
 
 
