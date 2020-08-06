@@ -42,8 +42,13 @@ def signup(request):
 
 # @login_required
 def profile(request): 
-    return render(request, 'profile/profile.html')
-# @login_required
+    posts = Post.objects.all()
+    print(posts)
+    context = {
+        'posts': posts
+    }
+    return render(request, 'profile/profile.html', context)
+
 def edit_profile(request):
   if request.method == 'POST':
         uform = UserUpdateForm(request.POST, instance=request.user)
