@@ -3,24 +3,28 @@
 {% load static %}
 
     <section class="post-container">
-
+        <!-- IMAGE CONTAINER -->
         <div class="post-top">
             <img id="post-img" src="{% static 'images/rio.jpg' %}" alt="{{ post.city }}">
-            <h1 class="post-title">{{ post.title }}</h1>
         </div>
-        
+        <!-- POST TITLE CONTAINER -->
+        <div class="post-title-container">
+            <h1 class="post-title animate__animated animate__fadeInUp">{{ post.title }}</h1>
+        </div>
+        <!-- POST BOTTOM -->
         <div class="post-bottom">
             
-            <div class="post-city post-item">City: {{ post.city }}</div>
+            <div class="post-city post-item"><span class="post-field-label">City: </span>{{ post.city }}</div>
             <div class="post-date post-item">
-                <div class="post-item">Date created: {{ post.created }}</div>
-                <div class="post-item">Date updated: {{ post.updated }}</div>
+                <div class="post-item"><span class="post-field-label">Date created: </span> {{ post.created }}</div>
+                <div class="post-item"><span class="post-field-label">Date updated: </span>{{ post.updated }}</div>
             </div>
-            <div class="post-user post-item">Author: {{ post.user.username }}</div>
-            <p class="post-body post-item">{{ post.body }}Saepe eum pariatur exercitationem a impedit et, exercitationem ullam dolores nisi inventore minus optio, maxime inventore doloribus facere eveniet voluptas, commodi repellendus reiciendis deserunt cupiditate similique esse delectus molestiae facere fugiat.</p>
+            <div class="post-user post-item"><span class="post-field-label">Author: </span>{{ post.user.username }}</div>
+            <p class="post-body post-item"><span class="post-field-label">Body: </span>{{ post.body }}</p>
 
+        <!-- EDIT POST BUTTONL -->
         <a href="{% url 'edit_post' post.id %}">
-            <button class="edit-btn btn" type="button" >Edit Post</button>
+            <button class="edit-btn btn post-edit-button" type="button" >Edit Post</button>
         </a>
 
     </section>

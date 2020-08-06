@@ -42,7 +42,7 @@ def signup(request):
 
 # @login_required
 def profile(request): 
-    posts = Post.objects.all()
+    posts = Post.objects.filter(user=request.user)
     print(posts)
     context = {
         'posts': posts
@@ -74,8 +74,8 @@ def about(request):
     return render(request, 'about.html')
 
 def cities(request):
-    # return HttpResponse('cities')
-    return redirect('city', city_id=2)
+    return HttpResponse('cities')
+    # return redirect('city', city_id=2)
 
 def city(request, city_id): 
     city = City.objects.get(id=city_id)

@@ -1,11 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1> Edit A Post Page</h1>
-    <form method="POST">
-        {% comment %} if we dont provide and action (path) the form will submit to the current path {% endcomment %}
-        {% csrf_token%}
-        {{ form.as_p }}
-            {% comment %} wraps each field in a paragraph tag and displays it on the page {% endcomment %}
-        <button class="edit-btn btn" type="submit">Save</button>
-    </form>
+    <!-- HEADER -->
+    <div class="edit-post-header-container">
+        <h1 class="edit-post-header">Edit Post</h1>
+    </div>
+    <!-- FORM -->
+    <div class="edit-post-form-container">
+        <form method="POST">
+            {% comment %} if we dont provide and action (path) the form will submit to the current path {% endcomment %}
+            {% csrf_token%}
+            {{ form.as_p }}
+                {% comment %} wraps each field in a paragraph tag and displays it on the page {% endcomment %}
+            <button class="edit-btn btn edit-post-save-button" type="submit">Save</button>
+        </form>
+    </div>
+
 {% endblock %}
