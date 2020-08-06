@@ -160,6 +160,28 @@ color: #00d1b2;
     height: 10vh;
 }
 
+/* EDIT PROFILE */
+
+.edit-profile-header-container {
+    text-align: center;
+}
+
+.edit-profile-header {
+    color: black; 
+    margin-top: 30px; 
+}
+
+.edit-profile-form-container {
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    height: 78vh; 
+}
+
+.edit-profile-button {
+    margin-top: 20px; 
+}
+
 
 /********************************************************************************************************** 
 FORMS
@@ -244,12 +266,7 @@ footer{
     width: 100%;
     background: #40515D;
     color: #FDFFFC;
-<<<<<<< HEAD
     position: relative;
-=======
-    position: relative; 
-    /* bottom: 0; */
->>>>>>> submaster
     text-align: center; 
 }
 
@@ -257,6 +274,7 @@ footer{
     padding: 12px 0 0 0; 
     font-size: 15px; 
 }
+
 /********************************************************************************************************** 
 Post 
 */
@@ -286,7 +304,7 @@ Post
 
 #post-img{
     width: 65vw !important;
-    height: 450h; 
+    height: 50vh; 
 }
 
 .post-title{
