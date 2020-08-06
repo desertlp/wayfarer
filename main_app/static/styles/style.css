@@ -13,8 +13,6 @@ Universal
 } 
 
 
-
-
 /********************************************************************************************************** 
 NAV 
 */
@@ -121,6 +119,11 @@ FORMS
     color: red; 
 }
 
+.sign-up-header {
+    font-size: 50px; 
+    margin: 0 0 10px 0; 
+}
+
 /********************************************************************************************************** 
 HOME PAGE
 */
@@ -148,7 +151,8 @@ h1 {
     align-items: center;
     justify-content: center;
     background-color: #011627;
-    height: 220px; 
+    /* height: 220px;  */
+    height: 32vh; 
 }
 
 .paragraph-container {
