@@ -4,34 +4,37 @@ from .forms import SignUpForm, UserProfileForm, UserUpdateForm, ProfileUpdateFor
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 
-# def signup(request):
-#     if request.method == 'POST':
-#         print("Username = ", request.POST['username'])
-#         form = SignUpForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             username = form.cleaned_data.get('username')
-#             raw_password = form.cleaned_data.get('password1')
-#             user = authenticate(username=username, password=raw_password)
-#             login(request, user)
-#             return redirect('profile')
-#     else:
-#         form = SignUpForm()
-#     return render(request, 'registration/signup.html', {'form': form})
+# AUTH ROUTES
+    # def signup(request):
+    #     if request.method == 'POST':
+    #         form = SignUpForm(request.POST)
+    #         if form.is_valid():
+    #             form.save()
+    #             username = form.cleaned_data.get('username')
+    #             raw_password = form.cleaned_data.get('password1')
+    #             user = authenticate(username=username, password=raw_password)
+    #             login(request, user)
+    #             return redirect('profile')
+    #     else:
+    #         form = SignUpForm()
+    #     return render(request, 'registration/signup.html', {'form': form})
 
-def signup(request): 
-    if request.method == 'POST': 
-        print ("Username = ", request.POST['username'])
-        # form = SignUpForm(request.POST)
+
+
+def signup(request):
+    if request.method == 'POST':
         form = SignUpForm(request.POST)
-        if form.is_valid(): 
+        if form.is_valid():
             user = form.save()
-            profile = Profile.objects.create(user=user)
-            login (request, user)
-            return render (request,'profile/profile.html', {'user': user})
-    else: 
+            profile = Profile(user=user)
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('profile')
+    else:
         form = SignUpForm()
-        return render (request, 'registration/signup.html', {'form': form })
+    return render(request, 'registration/signup.html', {'form': form})
 
 
 
@@ -42,13 +45,8 @@ def signup(request):
 
 # @login_required
 def profile(request): 
-    posts = Post.objects.filter(user=request.user)
-    print(posts)
-    context = {
-        'posts': posts
-    }
-    return render(request, 'profile/profile.html', context)
-
+    return render(request, 'profile/profile.html')
+# @login_required
 def edit_profile(request):
   if request.method == 'POST':
         uform = UserUpdateForm(request.POST, instance=request.user)
@@ -74,8 +72,8 @@ def about(request):
     return render(request, 'about.html')
 
 def cities(request):
-    return HttpResponse('cities')
-    # return redirect('city', city_id=2)
+    # return HttpResponse('cities')
+    return redirect('city', city_id=2)
 
 def city(request, city_id): 
     city = City.objects.get(id=city_id)
