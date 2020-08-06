@@ -13,8 +13,17 @@ Universal
 } 
 
 .edit-btn{
-    background: #EF233C;
+    background: #00d1b2;
     border-radius: 5px;
+    border-color: #EDF2F4;
+    border-width: 0;
+    color: #EDF2F4;
+}
+
+#profile-edit-btn{
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
 }
 
 body, html{
@@ -27,7 +36,6 @@ main{
     margin-bottom: -40px;
 }
 
-<<<<<<< HEAD
 main::after{
     content: "";
     display: block;
@@ -35,8 +43,6 @@ main::after{
 }
 
 
-=======
->>>>>>> submaster
 /********************************************************************************************************** 
 NAV 
 */
@@ -105,15 +111,19 @@ Profile
 .profile-img{
     border: 1px solid #ddd;
     border-radius: 4px;
-    width: 500px!important;
-    height: 375px;
+    width: 30vw;
+    height: 22.5vw;
     margin: 10px;	
 }
 
 .card {
-    width: 500px;
-    height: 375px;
+    width: 30vw;
+    height: 22.5vw;
     margin: 10px;
+}
+.post-card{
+    height: 33vh !important;
+    max-height: 30vh;
 }
 
 .card-img-top{
@@ -261,6 +271,37 @@ Post
 /********************************************************************************************************** 
 MEDIA QUERY
 */
+@media screen and (max-width: 1087px) {
+    .main-container-1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto 
+    } 
+    .profile-container{
+        display: inline-block; 
+        margin-top: 5px;
+    }
+    .profile-img{
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 60vw;
+        height: 45vw;
+        margin: 10px;	
+    }
+    
+    .card {
+        width: 60vw;
+        height: 45vw;
+        margin: 10px;
+    }
+    
+    .card-img-top{
+        height: 40px;
+    } 
+  }
 
 @media screen and (max-width: 375px) {
     /* HOME PAGE */
@@ -317,3 +358,4 @@ MEDIA QUERY
         height: 20vh;
     }
   }
+

@@ -23,14 +23,14 @@
                     <p class="card-text"><!--maybe add more info?--></p>
                 </div>
                 <a href="{% url 'edit_profile' %}">
-                    <button class="edit-btn" type="button" >Edit Profile</button>
+                    <button id="profile-edit-btn" class="edit-btn" type="button" >Edit Profile</button>
                 </a>
             </div>
 
         </div>
         {% for post in posts%}
             <a href="{% url 'about' %}">
-                <div class="card" style="width: 18rem;">
+                <div class="post-card card" style="width: 18rem;">
                     <img class="card-img-top" src="{% static 'images/london.jpg' %}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">{{post.title}}</h5>
