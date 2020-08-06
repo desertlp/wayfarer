@@ -29,7 +29,7 @@
 
         </div>
         {% for post in posts%}
-            <a href="{% url 'about' %}">
+            <a href= {% url 'post' post.id %}>
                 <div class="post-card card" style="width: 18rem;">
                     <img class="card-img-top" src="{% static 'images/london.jpg' %}" alt="Card image cap">
                     <div class="card-body">

@@ -6,6 +6,6 @@
         {% csrf_token%}
         {{ form.as_p }}
             {% comment %} wraps each field in a paragraph tag and displays it on the page {% endcomment %}
-        <button class="btn" type="submit">Create New Post</button>
+        <button class="edit-btn btn" type="submit">Create New Post</button>
     </form>
 {% endblock %}

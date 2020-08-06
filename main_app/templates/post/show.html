@@ -5,7 +5,7 @@
     <section class="post-container">
 
         <div class="post-top">
-            <img class="post-img" src="{% static 'images/rio.jpg' %}" alt="">
+            <img id="post-img" src="{% static 'images/rio.jpg' %}" alt="{{ post.city }}">
             <h1 class="post-title">{{ post.title }}</h1>
         </div>
         
@@ -20,7 +20,7 @@
             <p class="post-body post-item">{{ post.body }}Saepe eum pariatur exercitationem a impedit et, exercitationem ullam dolores nisi inventore minus optio, maxime inventore doloribus facere eveniet voluptas, commodi repellendus reiciendis deserunt cupiditate similique esse delectus molestiae facere fugiat.</p>
 
         <a href="{% url 'edit_post' post.id %}">
-            <button class="btn" type="button" >Edit Post</button>
+            <button class="edit-btn btn" type="button" >Edit Post</button>
         </a>
 
     </section>
