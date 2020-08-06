@@ -42,7 +42,7 @@ def signup(request):
 
 # @login_required
 def profile(request): 
-    posts = Post.objects.all()
+    posts = Post.objects.filter(user=request.user)
     print(posts)
     context = {
         'posts': posts
