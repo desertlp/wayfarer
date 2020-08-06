@@ -22,6 +22,7 @@ from django.contrib.auth.decorators import login_required
 def signup(request): 
     if request.method == 'POST': 
         print ("Username = ", request.POST['username'])
+        # form = SignUpForm(request.POST)
         form = SignUpForm(request.POST)
         if form.is_valid(): 
             user = form.save()
@@ -29,7 +30,7 @@ def signup(request):
             login (request, user)
             return render (request,'profile/profile.html', {'user': user})
     else: 
-        form = SignUpForm(request.POST)
+        form = SignUpForm()
         return render (request, 'registration/signup.html', {'form': form })
 
 # @login_required
