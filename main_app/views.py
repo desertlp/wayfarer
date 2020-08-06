@@ -4,37 +4,34 @@ from .forms import SignUpForm, UserProfileForm, UserUpdateForm, ProfileUpdateFor
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 
-# AUTH ROUTES
-    # def signup(request):
-    #     if request.method == 'POST':
-    #         form = SignUpForm(request.POST)
-    #         if form.is_valid():
-    #             form.save()
-    #             username = form.cleaned_data.get('username')
-    #             raw_password = form.cleaned_data.get('password1')
-    #             user = authenticate(username=username, password=raw_password)
-    #             login(request, user)
-    #             return redirect('profile')
-    #     else:
-    #         form = SignUpForm()
-    #     return render(request, 'registration/signup.html', {'form': form})
+# def signup(request):
+#     if request.method == 'POST':
+#         print("Username = ", request.POST['username'])
+#         form = SignUpForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             username = form.cleaned_data.get('username')
+#             raw_password = form.cleaned_data.get('password1')
+#             user = authenticate(username=username, password=raw_password)
+#             login(request, user)
+#             return redirect('profile')
+#     else:
+#         form = SignUpForm()
+#     return render(request, 'registration/signup.html', {'form': form})
 
-
-
-def signup(request):
-    if request.method == 'POST':
+def signup(request): 
+    if request.method == 'POST': 
+        print ("Username = ", request.POST['username'])
+        # form = SignUpForm(request.POST)
         form = SignUpForm(request.POST)
-        if form.is_valid():
+        if form.is_valid(): 
             user = form.save()
-            profile = Profile(user=user)
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            return redirect('profile')
-    else:
+            profile = Profile.objects.create(user=user)
+            login (request, user)
+            return render (request,'profile/profile.html', {'user': user})
+    else: 
         form = SignUpForm()
-    return render(request, 'registration/signup.html', {'form': form})
+        return render (request, 'registration/signup.html', {'form': form })
 
 
 

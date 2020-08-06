@@ -6,16 +6,18 @@ from django.dispatch import receiver
 
   
 class Profile(models.Model): 
-    user = models.OneToOneField(User,on_delete=models.CASCADE)
-    home_city = models.CharField(default='What City Are You From?', blank=True, max_length=100)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    home_city = models.CharField(blank=True, max_length=100)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
 
     def __str__(self): 
         return f"{self.user.username} Profile"
     
-    def save(self): 
+    # def save(self): 
+    def save(self, *args, **kwargs): 
         # keeps us from having gigantic files uploaded to our db and making our site run super slow
-        super().save()
+        super(Profile, self).save(*args, **kwargs)
+        
         img = Image.open(self.image.path)
         if img.height > 300 or img.width > 300:
             output_size = (300, 300)
