@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% load static %}
     <div class="main-container-1">
         <div class="profile-container ">
 
@@ -22,14 +23,27 @@
                     <p class="card-text"><!--maybe add more info?--></p>
                 </div>
                 <a href="{% url 'edit_profile' %}">
-                    <button class="btn" type="button" >Edit Profile</button>
+                    <button id="profile-edit-btn" class="edit-btn" type="button" >Edit Profile</button>
                 </a>
             </div>
 
         </div>
-        <div class="profile-container"> 
+        {% for post in posts%}
+            <a href= {% url 'post' post.id %}>
+                <div class="post-card card" style="width: 18rem;">
+                    <img class="card-img-top" src="{% static 'images/london.jpg' %}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{post.title}}</h5>
+                        <p class="card-text">{{post.body}}</p>
+                    </div>
+                </div>
+            </a>
+
+
+        {% endfor %}
+        {% comment %} <div class="profile-container"> 
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="../static/images/london.jpg" alt="Card image cap">
+                <img class="card-img-top" src="{% static 'images/london.jpg' %}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Post</h5>
                     <p class="card-text">Saepe eum pariatur exercitationem a impedit et, exercitationem ullam dolores nisi inventore minus optio, maxime inventore doloribus facere eveniet voluptas, commodi repellendus reiciendis deserunt cupiditate similique esse delectus molestiae facere fugiat.</p>
@@ -50,23 +64,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> {% endcomment %}
     
 
 
 
 {% endblock %}
-
-<form method="POST" enctype="multipart/form-data">
-    {% comment %} enctype="multipart/form-data is for the image upload  {% endcomment %}
-    {% csrf_token %}
-    {{ uform.as_p }}
-    {{ pform.as_p }}
-    <button class="btn" type="submit">Edit Profile</button>
-</form>
-
-<h1>Profile Page</h1>
-    <p>{{ user.username }}</p>
-    <p>{{ user.email }}</p>
-    <p>{{ user.profile.home_city }}</p>
-    <img src="{{ user.profile.image.url }}">

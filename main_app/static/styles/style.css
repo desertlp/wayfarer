@@ -1,6 +1,14 @@
 /********************************************************************************************************** 
 Universal 
 */
+* {
+    box-sizing: border-box;
+}
+
+/* body {
+    padding: 0;
+    margin: 0;
+} */
 
 .main-container-1 {
     display: flex;
@@ -11,6 +19,46 @@ Universal
     margin-left: auto;
     margin-right: auto 
 } 
+
+.edit-btn{
+    background: #00d1b2;
+    border-radius: 5px;
+    border-color: #EDF2F4;
+    border-width: 0;
+    color: #EDF2F4;
+}
+
+#profile-edit-btn{
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+}
+
+body, html{
+    min-height: 100%;
+    margin: 0;
+}
+
+main{
+    min-height: 100%;
+    margin-bottom: -40px;
+}
+
+/* main {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;  
+} */
+
+main::after{
+    content: "";
+    display: block;
+    height: 40px;
+}
+
+  
+
 
 
 /********************************************************************************************************** 
@@ -81,20 +129,25 @@ Profile
 .profile-img{
     border: 1px solid #ddd;
     border-radius: 4px;
-    width: 500px!important;
-    height: 375px;
+    width: 30vw;
+    height: 22.5vw;
     margin: 10px;	
 }
 
 .card {
-    width: 500px;
-    height: 375px;
+    width: 30vw;
+    height: 22.5vw;
     margin: 10px;
+}
+.post-card{
+    height: 33vh !important;
+    max-height: 30vh;
 }
 
 .card-img-top{
     height: 10vh;
 }
+
 
 /********************************************************************************************************** 
 FORMS
@@ -175,24 +228,100 @@ Footer
 */
 
 footer{
-    height: 4vh;
+    height: 50px;
     width: 100%;
     background: #40515D;
     color: #FDFFFC;
-    /* position: absolute;
-    bottom: 0; */
-    position: relative; 
+    position: absolute;
+    bottom: 0;
     text-align: center; 
 }
 
 .footer-content {
-    padding: 2px 0 0 0; 
+    padding: 12px 0 0 0; 
     font-size: 15px; 
 }
+/********************************************************************************************************** 
+Post 
+*/
+.post-container{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+}
+
+.post-top{
+    display: block;
+    width: 100%;
+}
+
+.post-bottom{
+    margin-top: 50px;
+    display: block;
+}
+
+#post-img{
+    width: 65vw !important;
+    height: 200px;
+}
+
+.post-title{
+    margin-top: 20px;
+    color: black;
+}
+
+.post-city{
+    color: black;
+}
+
+.post-date{
+    color: black;
+}
+
+.post-user{
+    color: black;
+}
+
+.post-body{
+    color: black;
+}
+
+
 
 /********************************************************************************************************** 
 MEDIA QUERY
 */
+@media screen and (max-width: 1087px) {
+    .main-container-1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto 
+    } 
+    .profile-container{
+        display: inline-block; 
+        margin-top: 5px;
+    }
+    .profile-img{
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 60vw;
+        height: 45vw;
+        margin: 10px;	
+    }
+    
+    .card {
+        width: 60vw;
+        height: 45vw;
+        margin: 10px;
+    }
+    
+    .card-img-top{
+        height: 40px;
+    } 
+  }
 
 @media screen and (max-width: 375px) {
     /* HOME PAGE */
@@ -216,4 +345,37 @@ MEDIA QUERY
     footer {
         position: relative; 
     }
+    /* PROFILE */
+    .main-container-1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        background: #40515D;
+        margin-left: auto;
+        margin-right: auto 
+    } 
+    .profile-container{
+        display: inline-block; 
+        margin-top: 5px;
+    }
+    
+    .profile-img{
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 300px!important;
+        height: 225px;
+        margin: 5px;	
+    }
+    
+    .card {
+        width: 300px;
+        height: 225px;
+        margin: 10px;
+    }
+    
+    .card-img-top{
+        height: 20vh;
+    }
   }
+
