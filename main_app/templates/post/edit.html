@@ -6,7 +6,7 @@
     </div>
     <!-- FORM -->
     <div class="edit-post-form-container">
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             {% comment %} if we dont provide and action (path) the form will submit to the current path {% endcomment %}
             {% csrf_token%}
             {{ form.as_p }}
