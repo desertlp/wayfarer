@@ -377,38 +377,38 @@ CITIES INDEX
 
 /* SIDEBAR */
 
-.menu-label {
-    padding: 5vh 0 0 1vw; 
-    color: white;
-}
-
 .sidebar-container {
-    max-width: 25vw; 
+    max-width: 20vw; 
     min-height: 88vh; 
     background-color: #011627; 
 }
 
+.sidebar-header {
+    color: white; 
+    padding-left: 17px; 
+    padding-top: 3vh; 
+}
+
+.sidebar-ul {
+    padding-top: 3vh; 
+}
+
 .sidebar-item {
+    padding: 10px 0 10px 25px; 
+}
+
+.sidebar-text {
     color: white; 
 }
 
-.sidebar-item:hover {
-    color: black; 
-}
-
-.menu-item-active-background-color {
-    background-color: transparent !important;
-}
-
-li:hover {
-    background-color: transparent !important;
-    color: black; 
+.sidebar-text:hover {
+    color: #FF00FF; 
 }
 
 a:hover {
-    text-decoration: none;
-    color: black; 
+    text-decoration: none; 
 }
+
 
 /********************************************************************************************************** 
 MEDIA QUERY
@@ -514,5 +514,6 @@ MEDIA QUERY
     .card-img-top{
         height: 20vh;
     }
+
   }
 
