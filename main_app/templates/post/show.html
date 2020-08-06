@@ -19,11 +19,9 @@
             <div class="post-user post-item">Author: {{ post.user.username }}</div>
             <p class="post-body post-item">{{ post.body }}Saepe eum pariatur exercitationem a impedit et, exercitationem ullam dolores nisi inventore minus optio, maxime inventore doloribus facere eveniet voluptas, commodi repellendus reiciendis deserunt cupiditate similique esse delectus molestiae facere fugiat.</p>
 
-            <a href="{% url 'edit_post' post.id %}">
-                <button class="edit-btn" type="button" >Edit Profile</button>
-            </a>
-
-        </div>
+        <a href="{% url 'edit_post' post.id %}">
+            <button class="btn" type="button" >Edit Post</button>
+        </a>
 
     </section>
 

@@ -7,7 +7,7 @@
         <h3 class="title is-size3">Login</h3>
         <!-- ERROR HANDLING -->
         {% if form.errors %}
-            <p class="error-message">Username or Password is Incorrect</p>
+            <p class="error-message">Username or Password is Invalid</p>
         {% endif %}
         <!-- FORM -->
             <form action="{% url 'login' %}" method="POST">

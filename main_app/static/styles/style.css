@@ -27,6 +27,7 @@ main{
     margin-bottom: -40px;
 }
 
+<<<<<<< HEAD
 main::after{
     content: "";
     display: block;
@@ -34,6 +35,8 @@ main::after{
 }
 
 
+=======
+>>>>>>> submaster
 /********************************************************************************************************** 
 NAV 
 */
@@ -65,10 +68,10 @@ nav {
 CAROUSEL 
 */
 
-.carousel {
+/* .carousel {
     width:640px;
     height:360px;
-}
+} */
 
 .carousel-container {
     display: flex; 
@@ -80,7 +83,7 @@ CAROUSEL
     background-size:contain;
     background-repeat:no-repeat;
     background-size: cover;
-    width:640px;
+    width: 100vw;
     height:360px;
 }
 
@@ -124,6 +127,7 @@ FORMS
 
 .form-container {
     width: 100vw; 
+    height: 90vh; 
     display: flex; 
     justify-content: center;
     align-items: center;
@@ -138,6 +142,11 @@ FORMS
 
 .error-message {
     color: red; 
+}
+
+.sign-up-header {
+    font-size: 50px; 
+    margin: 0 0 10px 0; 
 }
 
 /********************************************************************************************************** 
@@ -167,7 +176,8 @@ h1 {
     align-items: center;
     justify-content: center;
     background-color: #011627;
-    height: 200px; 
+    /* height: 220px;  */
+    height: 32vh; 
 }
 
 .paragraph-container {
@@ -253,6 +263,7 @@ MEDIA QUERY
 */
 
 @media screen and (max-width: 375px) {
+    /* HOME PAGE */
     h1 {
       font-size: 30px;
     }
