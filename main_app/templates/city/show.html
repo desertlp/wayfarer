@@ -5,72 +5,17 @@
 <div class="sidebar-container">
     <header class="sidebar-header">CITIES</header>
     <ul class="sidebar-ul">
-    <!-- ALL CITIES BELOW -->
+    <!-- CITY NAMES -->
       {% for city in side_bar_cities.all %}  
-        <li class="sidebar-item">
-            <a href="#"><span class="sidebar-text">{{city.name}}</span></a>
-        </li>
+        <a href="#">
+            <li class="sidebar-item">
+                <span class="sidebar-text">{{city.name}}</span>
+            </li>
+        </a>
       {% endfor %}
     </ul>
 </div>
+<!-- END SIDEBAR -->
 
 {% endblock %}
 
-
-<!-- END CITIES INDEX MENU -->
-
-{% comment %}
-
-VIEWS INFORMATION
-
-side_bar_cities = City.objects.all()
-city = City.objects.get(id=city_id)
-posts = Post.objects.filter(city_id=city_id)
-context = {
-    'city': city,
-    'posts': posts,
-    'side_bar_cities': side_bar_cities,
-}
-
-POST DATA
-
-{% for post in posts %}
-<a href="{% url 'post' post.id %}">
-    <img src="../static/images/rio.jpg" alt="">
-        <h1>{{ post.title }}</h1>
-    <div>City: {{ post.city }}</div>
-    <div>Date created: {{ post.created }}</div>
-    <div>Date updated: {{ post.updated }}</div>
-    <div>Author: {{ post.user.username }}</div>
-    <p>{{ post.body }}Saepe eum pariatur exercitationem a impedit et, exercitationem ullam dolores nisi inventore minus optio, maxime inventore doloribus facere eveniet voluptas, commodi repellendus reiciendis deserunt cupiditate similique esse delectus molestiae facere fugiat.</p>
-</a>
-{% endfor %}
-
-<a href="{% url 'new_post' city.id %}">
-    <button class="btn" type="button">New Post About This City</button>
-</a>
-
-<!-- SIDEBAR  -->
-<div class="sidebar-container">
-    <!-- SIDEBAR -->
-    <aside class="menu sidebar">
-        <p class="menu-label">
-          Cities
-        </p>
-        <ul class="menu-list">
-            <!-- ALL CITIES BELOW -->
-          {% for city in side_bar_cities.all %}  
-            <li class="sidebar-li">
-                <a href="#">
-                    <span class="sidebar-item">{{city.name}}</span>
-                </a>
-            </li>
-          {% endfor %}
-        </ul>
-      </aside>
-    </div>
-    <!-- END SIDEBAR -->
-
-
-
-{% endcomment %}
