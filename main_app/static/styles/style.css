@@ -123,6 +123,7 @@ Profile
     flex-direction: row;
     justify-content: center;
     margin-top: 20px;
+    text-align: center;
 }
 
 .all-posts{
@@ -144,6 +145,7 @@ Profile
 font-size: 2em;
 font-weight: 700;
 color: #00d1b2;
+text-align: center;
 }
 
 .card {
@@ -158,6 +160,12 @@ color: #00d1b2;
 
 .card-img-top{
     height: 10vh;
+}
+
+.post-card-title{
+    color: #00d1b2;
+    font-weight: 700;
+    text-align: center;
 }
 
 
@@ -244,12 +252,8 @@ footer{
     width: 100%;
     background: #40515D;
     color: #FDFFFC;
-<<<<<<< HEAD
-    position: relative;
-=======
     position: relative; 
     /* bottom: 0; */
->>>>>>> submaster
     text-align: center; 
 }
 

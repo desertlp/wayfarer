@@ -5,7 +5,7 @@
     <section class="post-container">
         <!-- IMAGE CONTAINER -->
         <div class="post-top">
-            <img id="post-img" src="{% static 'images/rio.jpg' %}" alt="{{ post.city }}">
+            <img id="post-img" src="{{ post.image.url }}" alt="{{ post.city }}">
         </div>
         <!-- POST TITLE CONTAINER -->
         <div class="post-title-container">
