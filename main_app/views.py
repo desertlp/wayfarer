@@ -111,15 +111,22 @@ def post(request, post_id):
     return render(request, 'post/show.html', context)
     # return HttpResponse('post show page')
 
+
+
+
 # @login_required
 def edit_post(request, post_id):
-    post = Post.objects.get(id=post_id) 
     if request.method == 'POST':
-          edited_post = PostForm(request.POST, instance=post)
-          if edited_post.is_valid():
-            post = edited_post.save()
+        post = Post.objects.get(id=post_id) 
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
             return redirect('post', post.id)
     else: 
+        post = Post.objects.get(id=post_id) 
         form = PostForm(instance=post)
-        return render(request, 'post/edit.html', {'form': form})
+    context = {
+    'form': form,
+    }
+    return render(request, 'post/edit.html', {'form': form})
 
