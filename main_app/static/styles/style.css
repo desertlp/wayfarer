@@ -12,7 +12,26 @@ Universal
     margin-right: auto 
 } 
 
+.edit-btn{
+    background: #EF233C;
+    border-radius: 5px;
+}
 
+body, html{
+    min-height: 100%;
+    margin: 0;
+}
+
+main{
+    min-height: 100%;
+    margin-bottom: -40px;
+}
+
+main::after{
+    content: "";
+    display: block;
+    height: 40px;
+}
 
 
 /********************************************************************************************************** 
@@ -171,13 +190,12 @@ Footer
 */
 
 footer{
-    height: 4vh;
+    height: 40px;
     width: 100%;
     background: #40515D;
     color: #FDFFFC;
-    /* position: absolute;
-    bottom: 0; */
-    position: relative; 
+    position: absolute;
+    bottom: 0;
     text-align: center; 
 }
 
@@ -185,6 +203,50 @@ footer{
     padding: 2px 0 0 0; 
     font-size: 15px; 
 }
+/********************************************************************************************************** 
+Post 
+*/
+.post-container{
+    color: black;
+}
+
+.post-top{
+    color: black;
+    width: 100%;
+    height: 20vh;
+}
+
+.post-bottom{
+    color: black;
+}
+
+/* .post-img{
+    width: 500px;
+    height: 200px;
+} */
+
+.post-title{
+    margin-top: 20px;
+    color: black;
+}
+
+.post-city{
+    color: black;
+}
+
+.post-date{
+    color: black;
+}
+
+.post-user{
+    color: black;
+}
+
+.post-body{
+    color: black;
+}
+
+
 
 /********************************************************************************************************** 
 MEDIA QUERY

@@ -20,7 +20,12 @@ def signup(request):
 
 # @login_required
 def profile(request): 
-  return render(request, 'profile/profile.html')
+    posts = Post.objects.all()
+    print(posts)
+    context = {
+        'posts': posts
+    }
+    return render(request, 'profile/profile.html', context)
 
 def edit_profile(request):
   if request.method == 'POST':
