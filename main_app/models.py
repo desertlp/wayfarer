@@ -4,22 +4,10 @@ from PIL import Image
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-    # import pillow libary
-
-# Create your models here.
-
-class City(models.Model): 
-    name = models.CharField(max_length=100, blank=False)
-    latitude = models.DecimalField(blank=True, max_digits=10, decimal_places=6)
-    longitude = models.DecimalField(blank=True, max_digits=10, decimal_places=6)
-    img_url = models.URLField(blank=False)
-
-    def __str__(self): 
-        return f"{self.name} id: {self.id}"
-
+  
 class Profile(models.Model): 
     user = models.OneToOneField(User,on_delete=models.CASCADE)
-    home_city = models.CharField(blank=True, max_length=100)
+    home_city = models.CharField(default='What City Are You From?', blank=True, max_length=100)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
 
     def __str__(self): 
@@ -43,6 +31,15 @@ class Profile(models.Model):
 # @receiver(post_save, sender=User)
 # def save_user_profile(sender, instance, **kwargs):
 #     instance.profile.save()
+
+class City(models.Model): 
+    name = models.CharField(max_length=100, blank=False)
+    latitude = models.DecimalField(blank=True, max_digits=10, decimal_places=6)
+    longitude = models.DecimalField(blank=True, max_digits=10, decimal_places=6)
+    img_url = models.URLField(blank=False)
+
+    def __str__(self): 
+        return f"{self.name} id: {self.id}"
 
 
 class Post(models.Model): 
