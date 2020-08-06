@@ -3,19 +3,17 @@
 {% block content %}
 {% load static %}
     <div class="main-container-1">
-        <div class="profile-container ">
+        <div class="profile-container">
 
             <div class="">
                 {% comment %} <img class="profile-img" src="https://cdn.britannica.com/36/162636-050-932C5D49/Colosseum-Rome-Italy.jpg" alt="Image"> {% endcomment %}
-                <img class="profile-img" src=" {{ user.profile.image.url }}">
-           
-
-
-
+                {% comment %} <img class="profile-img" src=" {{ user.profile.image.url }}"> {% endcomment %}
+                <img class="profile-img" src="{% static 'images/default.jpg' %}" alt="Image">
+                
             </div>
             <div class="card bg-light">
                 <div class="card-header">
-                    <h5>{{ user.username }}</h5>
+                    <h5 class="profile-h5">{{ user.username }}</h5>
                 </div>
                 <div class="card-body">
                     <div class="card-title">City: {{ user.profile.home_city }}</div>
@@ -28,6 +26,7 @@
             </div>
 
         </div>
+        <div class="all-posts animate__animated animate__fadeInUp">
         {% for post in posts%}
             <a href= {% url 'post' post.id %}>
                 <div class="post-card card" style="width: 18rem;">
@@ -38,9 +37,10 @@
                     </div>
                 </div>
             </a>
-
-
         {% endfor %}
+        </div>
+
+
         {% comment %} <div class="profile-container"> 
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="{% static 'images/london.jpg' %}" alt="Card image cap">

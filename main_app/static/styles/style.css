@@ -118,12 +118,18 @@ CAROUSEL
 /********************************************************************************************************** 
 Profile 
 */
-
 .profile-container{
     display: flex;
     flex-direction: row;
     justify-content: center;
     margin-top: 20px;
+}
+
+.all-posts{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    min-height: 40vh;
 }
 
 .profile-img{
@@ -132,6 +138,12 @@ Profile
     width: 30vw;
     height: 22.5vw;
     margin: 10px;	
+}
+
+.profile-h5{
+font-size: 2em;
+font-weight: 700;
+color: #00d1b2;
 }
 
 .card {
@@ -232,8 +244,12 @@ footer{
     width: 100%;
     background: #40515D;
     color: #FDFFFC;
+<<<<<<< HEAD
+    position: relative;
+=======
     position: relative; 
     /* bottom: 0; */
+>>>>>>> submaster
     text-align: center; 
 }
 
@@ -342,6 +358,14 @@ MEDIA QUERY
         display: inline-block; 
         margin-top: 5px;
     }
+
+    .all-posts{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        min-height: 40vh;
+    }
+
     .profile-img{
         border: 1px solid #ddd;
         border-radius: 4px;
@@ -398,6 +422,13 @@ MEDIA QUERY
         margin-top: 5px;
     }
     
+    .all-posts{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        min-height: 40vh;
+    }
+
     .profile-img{
         border: 1px solid #ddd;
         border-radius: 4px;
