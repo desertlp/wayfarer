@@ -8,16 +8,21 @@
             <div class="">
                 {% comment %} <img class="profile-img" src="https://cdn.britannica.com/36/162636-050-932C5D49/Colosseum-Rome-Italy.jpg" alt="Image"> {% endcomment %}
                 <img class="profile-img" src=" {{ user.profile.image.url }}">
+<<<<<<< HEAD
                 {% comment %} <img class="profile-img" src="{% static 'images/default.jpg' %}" alt="Image">
                  {% endcomment %}
+=======
+                {% comment %} <img class="profile-img" src="{% static 'images/default.jpg' %}" alt="Image"> {% endcomment %}
+                
+>>>>>>> ba53585149929240a7b6deb0b60746d9adb78798
             </div>
             <div class="card bg-light">
                 <div class="card-header">
                     <h5 class="profile-h5">{{ user.username }}</h5>
                 </div>
                 <div class="card-body">
-                    <div class="card-title">City: {{ user.profile.home_city }}</div>
-                    <div class="card-title">Email: {{ user.email }}</div>
+                    <div class="card-title"><strong>City:</strong> {{ user.profile.home_city }}</div>
+                    <div class="card-title"><strong>Email:</strong> {{ user.email }}</div>
                     <p class="card-text"><!--maybe add more info?--></p>
                 </div>
                 <a href="{% url 'edit_profile' %}">
@@ -30,9 +35,9 @@
         {% for post in posts%}
             <a href= {% url 'post' post.id %}>
                 <div class="post-card card" style="width: 18rem;">
-                    <img class="card-img-top" src="{% static 'images/london.jpg' %}" alt="Card image cap">
+                    <img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">{{post.title}}</h5>
+                        <h5 class="post-card-title">{{post.title}}</h5>
                         <p class="card-text">{{post.body}}</p>
                     </div>
                 </div>
