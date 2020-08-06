@@ -1,43 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<!-- CITIES INDEX MENU -->
+<!-- SIDEBAR  -->
 <div class="sidebar-container">
+<!-- SIDEBAR -->
 <aside class="menu sidebar">
     <p class="menu-label">
-      General
+      Cities
     </p>
     <ul class="menu-list">
-      <li><a>Dashboard</a></li>
-      <li><a>Customers</a></li>
-    </ul>
-    <p class="menu-label">
-      Administration
-    </p>
-    <ul class="menu-list">
-      <li><a>Team Settings</a></li>
-      <li>
-        <a class="is-active">Manage Your Team</a>
-        <ul>
-          <li><a>Members</a></li>
-          <li><a>Plugins</a></li>
-          <li><a>Add a member</a></li>
-        </ul>
-      </li>
-      <li><a>Invitations</a></li>
-      <li><a>Cloud Storage Environment Settings</a></li>
-      <li><a>Authentication</a></li>
-    </ul>
-    <p class="menu-label">
-      Transactions
-    </p>
-    <ul class="menu-list">
-      <li><a>Payments</a></li>
-      <li><a>Transfers</a></li>
-      <li><a>Balance</a></li>
+        <!-- ALL CITIES BELOW -->
+      {% for city in side_bar_cities.all %}  
+      <li><a href="#"><span class="sidebar-item">{{city.name}}</span></a></li>
+      {% endfor %}
     </ul>
   </aside>
 </div>
+<!-- END SIDEBAR -->
 
   {% endblock %}
 
@@ -57,13 +36,7 @@ context = {
     'side_bar_cities': side_bar_cities,
 }
 
-OLD SF DATA DISPLAYED
-
-<p>{{ city.name }}</p>
-<p>{{ city.latitude }} N</p>
-<p>{{ city.longitude }} W</p>
-<p>{{ city.img_url }}</p>
-
+POST DATA
 
 {% for post in posts %}
 <a href="{% url 'post' post.id %}">

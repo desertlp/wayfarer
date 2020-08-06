@@ -377,10 +377,38 @@ CITIES INDEX
 
 /* SIDEBAR */
 
-.sidebar-container {
-    max-width: 33vw; 
+.menu-label {
+    padding: 5vh 0 0 1vw; 
+    color: white;
 }
 
+.sidebar-container {
+    max-width: 25vw; 
+    min-height: 88vh; 
+    background-color: #011627; 
+}
+
+.sidebar-item {
+    color: white; 
+}
+
+.sidebar-item:hover {
+    color: black; 
+}
+
+.menu-item-active-background-color {
+    background-color: transparent !important;
+}
+
+li:hover {
+    background-color: transparent !important;
+    color: black; 
+}
+
+a:hover {
+    text-decoration: none;
+    color: black; 
+}
 
 /********************************************************************************************************** 
 MEDIA QUERY
