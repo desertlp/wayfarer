@@ -22,7 +22,7 @@
             <div class="post-user post-item"><span class="post-field-label">Author: </span>{{ post.user.username }}</div>
             <p class="post-body post-item"><span class="post-field-label">Body: </span>{{ post.body }}</p>
 
-        <!-- EDIT POST BUTTONL -->
+        <!-- EDIT POST BUTTON -->
         <a href="{% url 'edit_post' post.id %}">
             <button class="edit-btn btn post-edit-button" type="button" >Edit Post</button>
         </a>
