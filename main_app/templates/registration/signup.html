@@ -33,13 +33,11 @@
 
 {% comment %}
 
-
 <form action="{% url 'signup' %}" method="POST">
   {% csrf_token %}
   {{ form.as_p }}
   <button class="btn" type="submit">Sign Up</button>
 </form>
-
 <a href='#'>Sign In</a>
 
 {% endcomment %}

@@ -46,10 +46,10 @@ nav {
 CAROUSEL 
 */
 
-.carousel {
+/* .carousel {
     width:640px;
     height:360px;
-}
+} */
 
 .carousel-container {
     display: flex; 
@@ -61,7 +61,7 @@ CAROUSEL
     background-size:contain;
     background-repeat:no-repeat;
     background-size: cover;
-    width:640px;
+    width: 100vw;
     height:360px;
 }
 
