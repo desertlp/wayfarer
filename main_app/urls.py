@@ -21,6 +21,7 @@ urlpatterns = [
 
     path('post/<int:post_id>/', views.post, name='post'),
     path('post/<int:post_id>/edit/', views.edit_post, name='edit_post'),
+    path('post/<int:post_id>/delete/', views.delete_post, name='delete_post'),
 
     path('accounts/signup', views.signup, name='signup'),
     path('profile/', views.profile, name='profile'),

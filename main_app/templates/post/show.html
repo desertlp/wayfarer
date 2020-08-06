@@ -26,6 +26,13 @@
         <a href="{% url 'edit_post' post.id %}">
             <button class="edit-btn btn post-edit-button" type="button" >Edit Post</button>
         </a>
+        <!-- DELETE POST BUTTON -->
+        {% comment %} Lora Added this button, make sure the styling on this is bueno  {% endcomment %}
+        <a href="{% url 'delete_post' post.id %}">
+            <button class="edit-btn btn post-edit-button" type="button" >Delete Post</button>
+        </a>
+
+        
 
     </section>
 

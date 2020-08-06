@@ -91,7 +91,7 @@ def city(request, city_id):
 # this should go on a city_id page 
 def new_post(request, city_id):
     if request.method == 'POST':
-        submitted_new_post_form = PostForm(request.POST)
+        submitted_new_post_form = PostForm(request.POST, request.FILES)
         if submitted_new_post_form.is_valid():
             post = submitted_new_post_form.save(commit=False)
             post.user_id = request.user.id
@@ -116,17 +116,32 @@ def post(request, post_id):
 
 # @login_required
 def edit_post(request, post_id):
-    if request.method == 'POST':
+    post = Post.objects.get(id=post_id) 
+    form = PostForm(instance=post)
+    if request.method == 'POST' and request.user == post.user:
         post = Post.objects.get(id=post_id) 
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             form.save()
             return redirect('post', post.id)
+    elif request.user != post.user:
+        return HttpResponse('you cant edit this sucker')
     else: 
-        post = Post.objects.get(id=post_id) 
-        form = PostForm(instance=post)
+        if request.user == post.user:
+            post = Post.objects.get(id=post_id) 
+            form = PostForm(instance=post)
     context = {
-    'form': form,
+        'form': form,
     }
     return render(request, 'post/edit.html', {'form': form})
 
+# @login_required
+def delete_post(request, post_id):
+    post = Post.objects.get(id=post_id)
+    if request.user == post.user:
+        post = Post.objects.get(id=post_id).delete()
+        return redirect('cities')
+        # return HttpResponse(f"deleted post: {post_id}")
+    else:
+        return HttpResponse('you cant deleted this mfffff***')
+    
