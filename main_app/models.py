@@ -8,7 +8,7 @@ from django.dispatch import receiver
 class Profile(models.Model): 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     home_city = models.CharField(blank=True, max_length=100)
-    image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+    image = models.ImageField(default='default.jpg', upload_to='profile_pics/')
 
     def __str__(self): 
         return f"{self.user.username} Profile"
@@ -49,7 +49,7 @@ class Post(models.Model):
     body = models.TextField(blank=False, max_length=1000)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    image = models.ImageField(default='default.jpg', upload_to='post_pics')
+    image = models.ImageField(default='default.jpg', upload_to='post_pics/')
 
 
     city = models.ForeignKey(City, on_delete=models.CASCADE)
