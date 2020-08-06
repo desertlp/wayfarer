@@ -118,16 +118,20 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+
 STATIC_URL = '/static/'
 
+
+MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
+
+    # wtf I dont get this path 
+    # media directory is located at base/root directory of the project
+
+MEDIA_URL = '/media/' 
+ 
 LOGIN_URL = 'login'
 
 LOGIN_REDIRECT_URL = '/profile/'
     # on login it takes us to the cats inde page whereas otherwise you would have gone to the /account/login page (which would be a separate application, but we didnt do that in this app, so I may need to look this up and learn it on the side)
 LOGOUT_REDIRECT_URL = '/'
     # on logout, will take us to the homepage as opposed to the django loutout template page (different styling, is confusing to users)111
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-    # wtf I dont get this path 
-    # media directory is located at base/root directory of the project
-
-MEDIA_URL = '/media/'

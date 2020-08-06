@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from .models import City, Post, Comment, User, Profile
-from .forms import SignUpForm, UserProfileForm, UserUpdateForm, ProfileUpdateForm, PostEditForm
+from .forms import SignUpForm, UserProfileForm, UserUpdateForm, ProfileUpdateForm, PostForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 
@@ -33,10 +33,17 @@ def signup(request):
         form = SignUpForm()
         return render (request, 'registration/signup.html', {'form': form })
 
+
+
+
+
+
+
+
 # @login_required
 def profile(request): 
-  return render(request, 'profile/profile.html')
-
+    return render(request, 'profile/profile.html')
+# @login_required
 def edit_profile(request):
   if request.method == 'POST':
         uform = UserUpdateForm(request.POST, instance=request.user)
@@ -54,7 +61,6 @@ def edit_profile(request):
   }
   return render(request, 'profile/edit.html', context)
 
-
 # HOME PAGE 
 def home(request): 
     return render(request, 'home.html')
@@ -62,14 +68,36 @@ def home(request):
 def about(request): 
     return render(request, 'about.html')
 
-def cities(request): 
-    cities = City.objects.all()
-    context = {
-        'cities': cities,
-    }
-    # return render(request, 'cities.html', context)
-    return HttpResponse('cities')
+def cities(request):
+    # return HttpResponse('cities')
+    return redirect('city', city_id=2)
 
+def city(request, city_id): 
+    city = City.objects.get(id=city_id)
+    posts = Post.objects.filter(city_id=city_id)
+    context = {
+        'city': city,
+        'posts': posts,
+    }
+    return render(request, 'city/show.html', context)
+    # return HttpResponse('cities')
+
+# @login_required
+# this should go on a city_id page 
+def new_post(request, city_id):
+    if request.method == 'POST':
+        submitted_new_post_form = PostForm(request.POST)
+        if submitted_new_post_form.is_valid():
+            post = submitted_new_post_form.save(commit=False)
+            post.user_id = request.user.id
+            post.city_id = city_id
+            post.save()
+            return redirect('post', post.id)
+    else: 
+        new_post_form = PostForm()
+        return render(request, 'post/new.html', {'form': new_post_form})
+
+# @login_required
 def post(request, post_id): 
     post = Post.objects.get(id=post_id)
     context = {
@@ -78,14 +106,15 @@ def post(request, post_id):
     return render(request, 'post/show.html', context)
     # return HttpResponse('post show page')
 
+# @login_required
 def edit_post(request, post_id):
     post = Post.objects.get(id=post_id) 
     if request.method == 'POST':
-          edited_post = PostEditForm(request.POST, instance=post)
+          edited_post = PostForm(request.POST, instance=post)
           if edited_post.is_valid():
             post = edited_post.save()
             return redirect('post', post.id)
     else: 
-        form = PostEditForm(instance=post)
+        form = PostForm(instance=post)
         return render(request, 'post/edit.html', {'form': form})
 
