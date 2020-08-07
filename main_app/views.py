@@ -53,12 +53,14 @@ def home(request):
 def about(request): 
     return render(request, 'about.html')
 
+
 def cities(request):
     return redirect('city', city_id=2)
     # return redirect('city', city_id=3)
 
+
 def city(request, city_id): 
-    side_bar_cities = City.objects.all()
+    side_bar_cities = City.objects.all().order_by('name')
     city = City.objects.get(id=city_id)
     posts = Post.objects.filter(city_id=city_id).order_by('-updated')
     context = {
@@ -69,6 +71,7 @@ def city(request, city_id):
     print(posts)
     return render(request, 'city/show.html', context)
     # return HttpResponse('cities')
+
 
 # @login_required
 # this should go on a city_id page 

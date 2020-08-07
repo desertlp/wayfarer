@@ -12,10 +12,10 @@ urlpatterns = [
     path('about/', views.about, name="about"), 
         # Render a blank template
     # City Index
+    # CITIES NAV ITEM USES THIS URL
     path('cities/', views.cities, name="cities"),
     path('city/<int:city_id>/', views.city, name="city"),
     path('city/<int:city_id>/new_post', views.new_post, name="new_post"),
-    
     path('post/new/', views.new_post, name='new_post'),
         # this path should be from the city page 
 
