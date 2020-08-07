@@ -16,7 +16,7 @@
         <ul class="sidebar-ul">
         <!-- CITY NAMES -->
         {% for city in side_bar_cities.all %}  
-            <a href="#">
+            <a href={% url 'city' city.id%}>
                 <li class="sidebar-item">
                     <span class="sidebar-text">{{city.name}}</span>
                 </li>
