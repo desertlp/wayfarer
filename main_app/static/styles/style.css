@@ -453,6 +453,12 @@ Post
     margin: 12px 0 0 0; 
 }
 
+.message-alert {
+    font-size: 25px; 
+    padding: 5px 0 5px 0; 
+    color: white; 
+}
+
 /* EDIT POST */
 
 .edit-post-header-container {
