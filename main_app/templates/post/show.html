@@ -10,10 +10,16 @@
         <!-- POST TITLE CONTAINER -->
         <div class="post-title-container">
             <h1 class="post-title animate__animated animate__fadeInUp">{{ post.title }}</h1>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }} animate__animated animate__fadeInUp message-alert" {% endif %}> {{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         <!-- POST BOTTOM -->
         <div class="post-bottom">
-            
             <div class="post-city post-item"><span class="post-field-label">City: </span>{{ post.city }}</div>
             <div class="post-date post-item">
                 <div class="post-item"><span class="post-field-label">Date created: </span> {{ post.created }}</div>
@@ -22,7 +28,7 @@
             <div class="post-user post-item"><span class="post-field-label">Author: </span>{{ post.user.username }}</div>
             <p class="post-body post-item"><span class="post-field-label">Body: </span>{{ post.body }}</p>
 
-        
+    
         {% if request.user == post.user %}
             <!-- EDIT POST BUTTON -->
             <a href="{% url 'edit_post' post.id %}">
