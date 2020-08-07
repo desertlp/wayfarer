@@ -55,7 +55,6 @@ def edit_profile(request):
               uform.save()
               pform.save()
               return redirect('profile')
-              print(post)
   else:
         uform = UserUpdateForm(instance=request.user)
         pform = ProfileUpdateForm(instance=request.user.profile)
