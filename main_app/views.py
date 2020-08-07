@@ -74,18 +74,19 @@ def about(request):
     return render(request, 'about.html')
 
 def cities(request):
-    return HttpResponse('cities')
-    # return redirect('city', city_id=2)
+    # return HttpResponse('cities')
+    return redirect('city', city_id=3)
 
 def city(request, city_id): 
     side_bar_cities = City.objects.all()
     city = City.objects.get(id=city_id)
-    posts = Post.objects.filter(city_id=city_id)
+    posts = Post.objects.filter(city_id=city_id).order_by('-updated')
     context = {
         'city': city,
         'posts': posts,
         'side_bar_cities': side_bar_cities,
     }
+    print(posts)
     return render(request, 'city/show.html', context)
     # return HttpResponse('cities')
 
