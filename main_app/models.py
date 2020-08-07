@@ -25,6 +25,7 @@ class Profile(models.Model):
             img.save(self.image.path)
 
 
+
 class City(models.Model): 
     name = models.CharField(max_length=100, blank=False)
     latitude = models.DecimalField(blank=True, max_digits=10, decimal_places=6)
