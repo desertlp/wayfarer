@@ -164,11 +164,15 @@ Profile
     background-repeat:no-repeat;
 }
 
-.profile-h5{
+.profile-h5 {
 font-size: 2em;
 font-weight: 700;
 color: #00d1b2;
 text-align: center;
+}
+
+.card-header {
+    text-align: center; 
 }
 
 .card {
@@ -195,6 +199,28 @@ text-align: center;
     
 }
 
+/* EDIT PROFILE */
+
+.edit-profile-header-container {
+    text-align: center;
+}
+
+.edit-profile-header {
+    color: black; 
+    margin-top: 30px; 
+}
+
+.edit-profile-form-container {
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    height: 78vh; 
+}
+
+.edit-profile-button {
+    margin-top: 20px; 
+}
+
 .post-card-title{
     color: #00d1b2;
     font-weight: 700;
@@ -214,7 +240,7 @@ CITIES
 .city-show-conatiner{
     width: 80vw;
     border: 2px solid black;
-    border-radius: 5px;
+    /* border-radius: 5px; */
 }
 
 .city-top{
@@ -341,8 +367,7 @@ footer{
     width: 100%;
     background: #40515D;
     color: #FDFFFC;
-    position: relative; 
-    /* bottom: 0; */
+    position: relative;
     text-align: center; 
 }
 
@@ -350,6 +375,7 @@ footer{
     padding: 12px 0 0 0; 
     font-size: 15px; 
 }
+
 /********************************************************************************************************** 
 Post 
 */
@@ -379,7 +405,7 @@ Post
 
 #post-img{
     width: 65vw !important;
-    height: 450h; 
+    height: 50vh; 
 }
 
 .post-title{
@@ -432,6 +458,52 @@ Post
 
 .edit-post-save-button {
     margin-top: 15px; 
+}
+
+/********************************************************************************************************** 
+CITIES INDEX 
+*/
+
+/* SHOWPAGE CONTAINER */
+
+.show-page-main-container {
+    display: flex;
+    flex-direction: row; 
+}
+
+/* SIDEBAR */
+
+.sidebar-container {
+    /* max-width: 20vw;  */
+    width: 20vw; 
+    min-height: 88vh; 
+    background-color: #011627; 
+}
+
+.sidebar-header {
+    color: white; 
+    padding-left: 17px; 
+    padding-top: 3vh; 
+}
+
+.sidebar-ul {
+    padding-top: 3vh; 
+}
+
+.sidebar-item {
+    padding: 10px 0 10px 25px; 
+}
+
+.sidebar-text {
+    color: white; 
+}
+
+.sidebar-text:hover {
+    color: #FF00FF; 
+}
+
+a:hover {
+    text-decoration: none; 
 }
 
 
@@ -539,5 +611,6 @@ MEDIA QUERY
     .card-img-top{
         height: 20vh;
     }
+
   }
 
