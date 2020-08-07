@@ -71,10 +71,12 @@ def home(request):
 def about(request): 
     return render(request, 'about.html')
 
+
 def cities(request):
     # return HttpResponse('cities')
     return redirect('city', city_id=2)
     # return redirect('city', city_id=3)
+
 
 def city(request, city_id): 
     side_bar_cities = City.objects.all()
@@ -88,6 +90,7 @@ def city(request, city_id):
     print(posts)
     return render(request, 'city/show.html', context)
     # return HttpResponse('cities')
+
 
 # @login_required
 # this should go on a city_id page 

@@ -36,29 +36,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-              {% comment %}
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'profile' %}">Profile</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'cities' %}">Cities</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'about' %}">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'login' %}">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Logout</a>
-            </li> -->
-            {% endcomment %}
             <!-- NAV BAR STARTS HERE -->
               <!-- HOME -->
               <li class="nav-item">
@@ -69,7 +46,7 @@
                 <a class="nav-link" href="{% url 'about' %}">About</a>
               </li>               
               <!-- USER LOGGED IN NAV -->
-            {% if user.is_authenticated %}
+              {% if user.is_authenticated %}
              <!-- CITIES INDEX -->
              <li class="nav-item">
                 <a class="nav-link" href="{% url 'cities' %}">Cities</a>
