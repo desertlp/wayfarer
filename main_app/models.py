@@ -37,7 +37,7 @@ class City(models.Model):
 
 
 class Post(models.Model): 
-    title = models.CharField(blank=False, max_length=100)
+    title = models.CharField(blank=False, max_length=200)
     body = models.TextField(blank=False, max_length=1000)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
