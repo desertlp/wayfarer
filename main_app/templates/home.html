@@ -1,48 +1,50 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% load static %}
 <!-- CAROUSEL STARTS HERE -->
 <section class="carousel-container">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
         <!-- FIRST/ACTIVE ITEM: SAN FRANCISCO -->
         <div class="carousel-item active">
-            <img src="../static/images/san_francisco.jpg" class="d-block w-100 carousel-image" alt="San-Francisco">
+            <img src="{% static 'images/san_francisco.jpg' %}" class="d-block w-100 carousel-image" alt="San-Francisco">
             <div class="carousel-caption">
                 <h4 class="carousel-item-name animate__animated animate__fadeInUp">San Francisco</h4>
             </div>
         </div>
+        
         <!-- SECOND ITEM: LONDON -->
         <div class="carousel-item">
-            <img src="../static/images/london.jpg" class="d-block w-100 carousel-image" alt="London">
+            <img src="{% static 'images/london.jpg' %}" class="d-block w-100 carousel-image" alt="London">
             <div class="carousel-caption">
                 <h4 class="carousel-item-name animate__animated animate__fadeInUp">London</h4>
             </div>
         </div>
         <!-- THIRD ITEM: GIBRALTAR -->
         <div class="carousel-item">
-            <img src="../static/images/gibraltar.jpg" class="d-block w-100 carousel-image" alt="Gibraltar">
+            <img src="{% static 'images/gibraltar.jpg' %}" class="d-block w-100 carousel-image" alt="Gibraltar">
             <div class="carousel-caption">
                 <h4 class="carousel-item-name animate__animated animate__fadeInUp">Gibraltar</h4>
             </div>
         </div>
         <!-- FOURTH ITEM: ROME -->
         <div class="carousel-item">
-            <img src="../static/images/rome.jpg" class="d-block w-100 carousel-image" alt="Gibraltar">
+            <img src="{% static 'images/rome.jpg' %}" class="d-block w-100 carousel-image" alt="Gibraltar">
             <div class="carousel-caption">
                 <h4 class="carousel-item-name animate__animated animate__fadeInUp">Rome</h4>
             </div>
         </div>
         <!-- FIFTH ITEM: RIO DE JANEIRO  -->
         <div class="carousel-item">
-            <img src="../static/images/rio.jpg" class="d-block w-100 carousel-image" alt="Gibraltar">
+            <img src="{% static 'images/rio.jpg' %}" class="d-block w-100 carousel-image" alt="Gibraltar">
             <div class="carousel-caption">
                 <h4 class="carousel-item-name animate__animated animate__fadeInUp">Rio de Janeiro</h4>
             </div>
         </div>
         <!-- SIXTH ITEM: TOKYO -->
         <div class="carousel-item">
-            <img src="../static/images/tokyo.jpg" class="d-block w-100 carousel-image" alt="Gibraltar">
+            <img src="{% static 'images/tokyo.jpg' %}" class="d-block w-100 carousel-image" alt="Gibraltar">
             <div class="carousel-caption">
                 <h4 class="carousel-item-name animate__animated animate__fadeInUp">Tokyo</h4>
             </div>

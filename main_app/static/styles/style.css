@@ -131,6 +131,7 @@ Profile
     align-items: center;
     flex-direction: row;
     min-height: 40vh;
+    align-content: flex-end;
 }
 
 .profile-img{
@@ -159,11 +160,21 @@ text-align: center;
 }
 .post-card{
     height: 33vh !important;
-    max-height: 30vh;
+    /* max-height: 30vh; */
+    height:30vh;
 }
 
 .card-img-top{
     height: 10vh;
+    object-fit: cover;
+    background-size:contain;
+    background-repeat:no-repeat;
+}
+
+.card-body{
+    overflow: hidden;
+    text-overflow: clip;
+    
 }
 
 /* EDIT PROFILE */
@@ -194,7 +205,56 @@ text-align: center;
     text-align: center;
 }
 
+.card-text{
+    height: 100%;
+    padding-top: 5px;
+    text-overflow: ellipsis;
+}
 
+/********************************************************************************************************** 
+CITIES
+*/
+
+.city-show-conatiner{
+    width: 80vw;
+    border: 2px solid black;
+    /* border-radius: 5px; */
+}
+
+.city-top{
+    display: flex;
+    flex-direction: row;
+}
+
+.city-details{
+    width: 30vw;
+    padding: 10px;
+    text-align: center;
+}
+
+
+.city-img-container{
+    width: 50vw;
+    margin-top: 10px; 
+}
+
+.city-img{
+    border-radius: 5px;
+}
+
+.city-bottom{
+    display: flex;
+    flex-direction: row;
+    /* align-content: flex-end; */
+}
+.add-btn{
+    font-weight: 700;
+    font-size: 25px;
+    border-radius: 50%;
+    line-height: 25px;
+    padding: 2, 2, 4, 2;
+    border: 1px solid black;
+}
 /********************************************************************************************************** 
 FORMS
 */
@@ -375,10 +435,18 @@ Post
 CITIES INDEX 
 */
 
+/* SHOWPAGE CONTAINER */
+
+.show-page-main-container {
+    display: flex;
+    flex-direction: row; 
+}
+
 /* SIDEBAR */
 
 .sidebar-container {
-    max-width: 18vw; 
+    /* max-width: 20vw;  */
+    width: 20vw; 
     min-height: 88vh; 
     background-color: #011627; 
 }

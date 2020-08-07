@@ -29,7 +29,8 @@ class City(models.Model):
     name = models.CharField(max_length=100, blank=False)
     latitude = models.DecimalField(blank=True, max_digits=10, decimal_places=6)
     longitude = models.DecimalField(blank=True, max_digits=10, decimal_places=6)
-    img_url = models.URLField(blank=False)
+    country = models.CharField(default='USA', max_length=100, blank=False)
+    image = models.ImageField(default='default_city.jpg', upload_to='city_pics/')
 
     def __str__(self): 
         return f"{self.name} id: {self.id}"
