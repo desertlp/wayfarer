@@ -11,7 +11,7 @@ class SignUpForm(UserCreationForm):
     email = forms.EmailField(max_length=250)
     def clean_email(self):
         if User.objects.filter(email=self.cleaned_data['email']).exists():
-            raise forms.ValidationError("the given email is already registered")
+            raise forms.ValidationError("This email already exists.")
         return self.cleaned_data['email']
         # default is required = True
     class Meta:
