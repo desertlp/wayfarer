@@ -9,7 +9,7 @@ def signup(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save()
-            profile = Profile(user=user)
+            profile = Profile.objects.create(user=user)
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
@@ -18,6 +18,9 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})
+
+
+
 
 # @login_required
 def profile(request): 
@@ -53,12 +56,14 @@ def home(request):
 def about(request): 
     return render(request, 'about.html')
 
+
 def cities(request):
     return redirect('city', city_id=2)
     # return redirect('city', city_id=3)
 
+
 def city(request, city_id): 
-    side_bar_cities = City.objects.all()
+    side_bar_cities = City.objects.all().order_by('name')
     city = City.objects.get(id=city_id)
     posts = Post.objects.filter(city_id=city_id).order_by('-updated')
     context = {
@@ -69,6 +74,7 @@ def city(request, city_id):
     print(posts)
     return render(request, 'city/show.html', context)
     # return HttpResponse('cities')
+
 
 # @login_required
 # this should go on a city_id page 
@@ -92,64 +98,35 @@ def post(request, post_id):
         'post': post,
     }
     return render(request, 'post/show.html', context)
-    # return HttpResponse('post show page')
 
-
-# ---------------- EDIT AND DELETE ONLY YOUR STUFF ----------------
-
+# @login_required
 def edit_post(request, post_id):
-    if request.method == 'POST':
+    post = Post.objects.get(id=post_id) 
+    form = PostForm(instance=post)
+    if request.method == 'POST' and request.user == post.user:
         post = Post.objects.get(id=post_id) 
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             form.save()
             return redirect('post', post.id)
+    elif request.user != post.user:
+        return HttpResponse('you cant edit this sucker')
     else: 
-        post = Post.objects.get(id=post_id) 
-        form = PostForm(instance=post)
+        if request.user == post.user:
+            post = Post.objects.get(id=post_id) 
+            form = PostForm(instance=post)
     context = {
-    'form': form,
+        'form': form,
     }
     return render(request, 'post/edit.html', {'form': form})
 
-    # @login_required
+# @login_required
 def delete_post(request, post_id):
-    post = Post.objects.get(id=post_id).delete()
-    return redirect('cities')
-
-
-
-# ---------------- EDIT AND DELETE ALL ----------------
-#SPRINT 3
-    # # @login_required
-    # def edit_post(request, post_id):
-    #     post = Post.objects.get(id=post_id) 
-    #     form = PostForm(instance=post)
-    #     if request.method == 'POST' and request.user == post.user:
-    #         post = Post.objects.get(id=post_id) 
-    #         form = PostForm(request.POST, request.FILES, instance=post)
-    #         if form.is_valid():
-    #             form.save()
-    #             return redirect('post', post.id)
-    #     elif request.user != post.user:
-    #         return HttpResponse('you cant edit this sucker')
-    #     else: 
-    #         if request.user == post.user:
-    #             post = Post.objects.get(id=post_id) 
-    #             form = PostForm(instance=post)
-    #     context = {
-    #         'form': form,
-    #     }
-    #     return render(request, 'post/edit.html', {'form': form})
-
-    # # @login_required
-    # def delete_post(request, post_id):
-    #     post = Post.objects.get(id=post_id)
-    #     if request.user == post.user:
-    #         post = Post.objects.get(id=post_id).delete()
-    #         return redirect('cities')
-    #         # return HttpResponse(f"deleted post: {post_id}")
-    #     else:
-    #         return HttpResponse('you cant deleted this mfffff***')
+    post = Post.objects.get(id=post_id)
+    if request.user == post.user:
+        post = Post.objects.get(id=post_id).delete()
+        return redirect('cities')
+    else:
+        return HttpResponse('you cant deleted this mfffff***')
 
 
