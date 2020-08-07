@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <!-- HEADER -->
+    <div class="edit-profile-header-container">
+        <h1 class="edit-profile-header">Edit Profile</h1>
+    </div>
+
+    <!-- FORM  -->
+    <div class="edit-profile-form-container">
+        <form method="POST" enctype="multipart/form-data">
+            {% comment %} enctype="multipart/form-data is for the image upload  {% endcomment %}
+            {% csrf_token %}
+            {{ uform.as_p }}
+            {{ pform.as_p }}
+            
+            <button class="btn edit-btn edit-profile-button" type="submit">Save</button>
+        </form>
+    </div>
+
+{% endblock %}

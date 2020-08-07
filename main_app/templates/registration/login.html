@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="form-container">
+<div class="columns is-mobile form-panel">
+    <div class="column is-half is-offset-one-quarter">
+        <!-- LOGIN -->
+        <h3 class="title is-size3">Login</h3>
+        <!-- ERROR HANDLING -->
+        {% if form.errors %}
+            <p class="error-message">Username or Password is Invalid</p>
+        {% endif %}
+        <!-- FORM -->
+            <form action="{% url 'login' %}" method="POST">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="field">
+                        <label for="{{ field.id_for_label }}" class="label">{{ field.html_name }}</label>
+                        {{ field }}
+                    </div>
+                {% endfor %}
+                <button class="button is-primary" type="submit">Login</button>
+            </form>
+    </div>
+</div>
+</section>
+{% endblock %}

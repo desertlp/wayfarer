@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+    <section class="post-container">
+        <!-- IMAGE CONTAINER -->
+        <div class="post-top">
+            <img id="post-img" src="{{ post.image.url }}" alt="{{ post.city }}">
+        </div>
+        <!-- POST TITLE CONTAINER -->
+        <div class="post-title-container">
+            <h1 class="post-title animate__animated animate__fadeInUp">{{ post.title }}</h1>
+        </div>
+        <!-- POST BOTTOM -->
+        <div class="post-bottom">
+            
+            <div class="post-city post-item"><span class="post-field-label">City: </span>{{ post.city }}</div>
+            <div class="post-date post-item">
+                <div class="post-item"><span class="post-field-label">Date created: </span> {{ post.created }}</div>
+                <div class="post-item"><span class="post-field-label">Date updated: </span>{{ post.updated }}</div>
+            </div>
+            <div class="post-user post-item"><span class="post-field-label">Author: </span>{{ post.user.username }}</div>
+            <p class="post-body post-item"><span class="post-field-label">Body: </span>{{ post.body }}</p>
+
+        
+        {% if request.user == post.user %}
+            <!-- EDIT POST BUTTON -->
+            <a href="{% url 'edit_post' post.id %}">
+                <button class="edit-btn btn post-edit-button" type="button" >Edit Post</button>
+            </a>
+            <!-- DELETE POST BUTTON -->
+            {% comment %} Lora Added this button, make sure the styling on this is bueno  {% endcomment %}
+
+            <a href="{% url 'delete_post' post.id %}" onclick="return confirm('Are you sure you want to delete this item?');">
+                <button class="edit-btn btn post-edit-button post-delete-button" type="button" >Delete Post</button>
+            </a>
+
+        {% endif %}
+    
+    </section>
+
+{% endblock %}
+
+

@@ -1,0 +1,587 @@
+/********************************************************************************************************** 
+Universal 
+*/
+* {
+    box-sizing: border-box;
+}
+
+/* body {
+    padding: 0;
+    margin: 0;
+} */
+
+.main-container-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90vw;
+    background: #40515D;
+    margin-left: auto;
+    margin-right: auto 
+} 
+
+.edit-btn{
+    background: #00d1b2;
+    border-radius: 5px;
+    border-color: #EDF2F4;
+    border-width: 0;
+    color: #EDF2F4;
+}
+
+#profile-edit-btn{
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+}
+
+body, html{
+    min-height: 100%;
+    margin: 0;
+}
+
+main{
+    min-height: 100%;
+    margin-bottom: -40px;
+}
+
+/* main {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;  
+} */
+
+main::after{
+    content: "";
+    display: block;
+    height: 40px;
+}
+
+  
+
+
+
+/********************************************************************************************************** 
+NAV 
+*/
+
+nav {
+    max-height: 4vh;
+}
+
+.navbar-light {
+    
+    background: #011627 ;
+    color: #FDFFFC;
+}
+.navbar-light .navbar-brand {
+    color: #FDFFFC;
+}
+.navbar-light .navbar-brand:hover {
+    color: #FF00FF;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    color: #FDFFFC;
+}
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #FF00FF;
+  }
+
+/********************************************************************************************************** 
+CAROUSEL 
+*/
+
+/* .carousel {
+    width:640px;
+    height:360px;
+} */
+
+.carousel-container {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-image {
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height:360px;
+}
+
+.carousel-item-name {
+    font-size: 32px; 
+}
+
+/********************************************************************************************************** 
+Profile 
+*/
+.profile-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.all-posts{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    min-height: 40vh;
+    align-content: flex-end;
+}
+
+.profile-img{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 30vw;
+    height: 22.5vw;
+    margin: 10px;	
+}
+
+.profile-h5 {
+font-size: 2em;
+font-weight: 700;
+color: #00d1b2;
+text-align: center;
+}
+
+.card-header {
+    text-align: center; 
+}
+
+.card {
+    width: 30vw;
+    height: 22.5vw;
+    margin: 10px;
+}
+.post-card{
+    height: 33vh !important;
+    /* max-height: 30vh; */
+    height:30vh;
+}
+
+.card-img-top{
+    height: 10vh;
+    object-fit: cover;
+    background-size:contain;
+    background-repeat:no-repeat;
+}
+
+.card-body{
+    overflow: hidden;
+    text-overflow: clip;
+    
+}
+
+/* EDIT PROFILE */
+
+.edit-profile-header-container {
+    text-align: center;
+}
+
+.edit-profile-header {
+    color: black; 
+    margin-top: 30px; 
+}
+
+.edit-profile-form-container {
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    height: 78vh; 
+}
+
+.edit-profile-button {
+    margin-top: 20px; 
+}
+
+.post-card-title{
+    color: #00d1b2;
+    font-weight: 700;
+    text-align: center;
+}
+
+.card-text{
+    height: 100%;
+    padding-top: 5px;
+    text-overflow: ellipsis;
+}
+
+/********************************************************************************************************** 
+CITIES
+*/
+
+.city-show-conatiner{
+    width: 80vw;
+    border: 2px solid black;
+    /* border-radius: 5px; */
+}
+
+.city-top{
+    display: flex;
+    flex-direction: row;
+}
+
+.city-details{
+    width: 30vw;
+    padding: 10px;
+    text-align: center;
+}
+
+
+.city-img-container{
+    width: 50vw;
+    margin-top: 10px; 
+}
+
+.city-img{
+    border-radius: 5px;
+}
+
+.city-bottom{
+    display: flex;
+    flex-direction: row;
+    /* align-content: flex-end; */
+}
+.add-btn{
+    font-weight: 700;
+    font-size: 25px;
+    border-radius: 50%;
+    line-height: 25px;
+    padding: 2, 2, 4, 2;
+    border: 1px solid black;
+}
+/********************************************************************************************************** 
+FORMS
+*/
+
+.form-container {
+    width: 100vw; 
+    height: 90vh; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.form-panel {
+    width: 640px; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.error-message {
+    color: red; 
+}
+
+.sign-up-header {
+    font-size: 50px; 
+    margin: 0 0 10px 0; 
+}
+
+/********************************************************************************************************** 
+HOME PAGE
+*/
+
+/* LOGO */
+
+.logo-container {
+    width: 100vw; 
+    height: 12vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #40515D;
+}
+
+h1 {
+    font-size: 50px; 
+    color: white; 
+}
+
+/* DESCRIPTIVE PARAGRAPHS */
+
+.body-container {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    background-color: #011627;
+    /* height: 220px;  */
+    height: 32vh; 
+}
+
+.paragraph-container {
+    height: 200px; 
+    padding: 35px 20px 20px 20px; 
+}
+
+.body-content {
+    font-size: 12px; 
+    color: white; 
+}
+
+.heading {
+    font-size: 20px; 
+    color: white;
+}
+
+/********************************************************************************************************** 
+Footer 
+*/
+
+footer{
+    height: 50px;
+    width: 100%;
+    background: #40515D;
+    color: #FDFFFC;
+    position: relative;
+    text-align: center; 
+}
+
+.footer-content {
+    padding: 12px 0 0 0; 
+    font-size: 15px; 
+}
+
+/********************************************************************************************************** 
+Post 
+*/
+
+.post-container{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+}
+
+.post-top{
+    display: flex; 
+    justify-content: center;
+}
+
+.post-title-container {
+    text-align: center; 
+    background-color: #011627 ;
+}
+
+.post-bottom{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: block;
+    text-align: center;
+}
+
+#post-img{
+    width: 65vw !important;
+    height: 50vh; 
+}
+
+.post-title{
+    margin-top: 20px;
+    margin-bottom: 20px; 
+    color: white; 
+}
+
+.post-city{
+    color: black;
+}
+
+.post-date{
+    color: black;
+}
+
+.post-user{
+    color: black;
+}
+
+.post-body{
+    color: black;
+}
+
+.post-field-label {
+    font-weight: bold; 
+}
+
+.post-edit-button {
+    margin: 12px 0 0 0; 
+}
+
+/* EDIT POST */
+
+.edit-post-header-container {
+    text-align: center; 
+}
+
+.edit-post-header {
+    color: black; 
+    margin-top: 40px; 
+}
+
+.edit-post-form-container {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    height: 75vh; 
+}
+
+.edit-post-save-button {
+    margin-top: 15px; 
+}
+
+/********************************************************************************************************** 
+CITIES INDEX 
+*/
+
+/* SHOWPAGE CONTAINER */
+
+.show-page-main-container {
+    display: flex;
+    flex-direction: row; 
+}
+
+/* SIDEBAR */
+
+.sidebar-container {
+    /* max-width: 20vw;  */
+    width: 20vw; 
+    min-height: 88vh; 
+    background-color: #011627; 
+}
+
+.sidebar-header {
+    color: white; 
+    padding-left: 17px; 
+    padding-top: 3vh; 
+}
+
+.sidebar-ul {
+    padding-top: 3vh; 
+}
+
+.sidebar-item {
+    padding: 10px 0 10px 25px; 
+}
+
+.sidebar-text {
+    color: white; 
+}
+
+.sidebar-text:hover {
+    color: #FF00FF; 
+}
+
+a:hover {
+    text-decoration: none; 
+}
+
+
+/********************************************************************************************************** 
+MEDIA QUERY
+*/
+@media screen and (max-width: 1087px) {
+    .main-container-1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto 
+    } 
+    .profile-container{
+        display: inline-block; 
+        margin-top: 5px;
+    }
+
+    .all-posts{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        min-height: 40vh;
+    }
+
+    .profile-img{
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 60vw;
+        height: 45vw;
+        margin: 10px;	
+    }
+    
+    .card {
+        width: 60vw;
+        height: 45vw;
+        margin: 10px;
+    }
+    
+    .card-img-top{
+        height: 40px;
+    } 
+  }
+
+@media screen and (max-width: 375px) {
+    /* HOME PAGE */
+    h1 {
+      font-size: 30px;
+    }
+    .carousel-item-name {
+        font-size: 25px; 
+    }
+    .navbar-toggler {
+        color: white; 
+    }
+    .body-container {
+        height: 60vh; 
+        display: inline-block; 
+    }
+    .paragraph-container {
+        width: 100vw; 
+        height: 20vh; 
+    }
+    footer {
+        position: relative; 
+    }
+    /* PROFILE */
+    .main-container-1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        background: #40515D;
+        margin-left: auto;
+        margin-right: auto 
+    } 
+    .profile-container{
+        display: inline-block; 
+        margin-top: 5px;
+    }
+    
+    .all-posts{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        min-height: 40vh;
+    }
+
+    .profile-img{
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 300px!important;
+        height: 225px;
+        margin: 5px;	
+    }
+    
+    .card {
+        width: 300px;
+        height: 225px;
+        margin: 10px;
+    }
+    
+    .card-img-top{
+        height: 20vh;
+    }
+
+  }
+
