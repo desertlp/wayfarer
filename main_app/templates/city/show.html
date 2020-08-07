@@ -10,7 +10,7 @@
         <ul class="sidebar-ul">
         <!-- CITY NAMES -->
         {% for city in side_bar_cities.all %}  
-            <a href="#">
+            <a href={% url 'city' city.id %}>
                 <li class="sidebar-item">
                     <span class="sidebar-text">{{city.name}}</span>
                 </li>
@@ -23,12 +23,12 @@
     <div class="city-show-conatiner">
         <!-- CITY IMAGE -->
         <div class="city-img-container">
-           <p>{{ city.img_url }}</p>
-            <!-- <img class="city-img" src=" static 'images/san_francisco.jpg' " alt="{{ city.name }}"> -->
+    
+            <img class="city-img" src="{{ city.image.url }}" alt="{{ city.name }}">
         </div>
         <!-- CITY TOP HALF -->
             <div class="city-details">
-                <p class="city-title profile-h5">{{ city.name }}</p>
+                <p class="city-title profile-h5">{{ city.name }}, {{ city.country }}</p>
                 <div class="divider"></div>
                 <a href="{% url 'new_post' city.id %}">
                     <button class="edit-btn btn add-btn" type="button">+</button>

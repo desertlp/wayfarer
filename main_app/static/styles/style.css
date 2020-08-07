@@ -84,9 +84,28 @@ nav {
 .navbar-light .navbar-nav .nav-link{
     color: #FDFFFC;
 }
+
 .navbar-light .navbar-nav .nav-link:hover {
     color: #FF00FF;
   }
+  
+.navbar-toggler-icon{
+    margin-bottom: 15px;
+}
+
+/* Stroke color should match bord */
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,0 ,255, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+  
+/* .custom-toggler.navbar-toggler {
+border-style: hidden;
+}  */
+
+.navbar-toggler{
+    border-style: none;
+}
+
 
 /********************************************************************************************************** 
 CAROUSEL 
@@ -140,6 +159,9 @@ Profile
     width: 30vw;
     height: 22.5vw;
     margin: 10px;	
+    /* object-fit: cover; */
+    background-size:contain;
+    background-repeat:no-repeat;
 }
 
 .profile-h5 {
@@ -233,6 +255,18 @@ CITIES
     color: white; 
 }
 
+.city-country {
+    font-weight: 700;
+    font-size: 1.25rem;
+    border-bottom: 2px solid black;
+}
+
+.city-details{
+    width: 80vw;
+    padding: 10px;
+    text-align: center;
+}
+
 .divider {
     width: 15px; 
 }
@@ -252,8 +286,10 @@ CITIES
     flex-direction: row;
     /* align-content: flex-end; */
     justify-content: center;
+    /* overflow: ; */
 }
-.add-btn{
+
+.add-btn {
     font-weight: 700;
     font-size: 25px;
     border-radius: 50%;
@@ -261,6 +297,7 @@ CITIES
     padding: 2, 2, 4, 2;
     border: 1px solid black;
 }
+
 /********************************************************************************************************** 
 FORMS
 */
@@ -271,6 +308,7 @@ FORMS
     display: flex; 
     justify-content: center;
     align-items: center;
+
 }
 
 .form-panel {
