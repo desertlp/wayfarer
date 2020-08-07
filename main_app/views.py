@@ -3,6 +3,7 @@ from .models import City, Post, Comment, User, Profile
 from .forms import SignUpForm, UserProfileForm, UserUpdateForm, ProfileUpdateForm, PostForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 def signup(request):
     if request.method == 'POST':
@@ -86,6 +87,7 @@ def new_post(request, city_id):
             post.user_id = request.user.id
             post.city_id = city_id
             post.save()
+            messages.success(request, "Post created!")
             return redirect('post', post.id)
     else: 
         new_post_form = PostForm()
