@@ -1,22 +1,16 @@
 {% extends 'base.html' %}
+
 {% block content %}
-
-
-
-
-
-{% load static %}
 
 <!-- MAIN CONTAINER -->
 <div class="show-page-main-container">
-
     <!-- SIDEBAR -->
     <div class="sidebar-container">
         <header class="sidebar-header">CITIES</header>
         <ul class="sidebar-ul">
         <!-- CITY NAMES -->
         {% for city in side_bar_cities.all %}  
-            <a href={% url 'city' city.id%}>
+            <a href={% url 'city' city.id %}>
                 <li class="sidebar-item">
                     <span class="sidebar-text">{{city.name}}</span>
                 </li>
@@ -25,27 +19,21 @@
         </ul>
     </div>
     <!-- END SIDEBAR -->   
-
     <!-- CITY SHOW PAGE -->
     <div class="city-show-conatiner">
         <!-- CITY IMAGE -->
         <div class="city-img-container">
-            <img class="city-img" src="{% static 'images/san_francisco.jpg' %}" alt="{{ city.name }}">
+    
+            <img class="city-img" src="{{ city.image.url }}" alt="{{ city.name }}">
         </div>
         <!-- CITY TOP HALF -->
-        <div class="city-top">
             <div class="city-details">
-                <p class="city-title profile-h5">{{ city.name }}</p>
-                <p class="city-country">{{ city.country }}</p>
-                <p><strong>Latitude:</strong>{{ city.latitude }} N</p>
-                <p><strong>longitude:</strong>{{ city.longitude }} W</p>
-                {% comment %} <p>{{ city.img_url }}</p> {% endcomment %}
+                <p class="city-title profile-h5">{{ city.name }}, {{ city.country }}</p>
+                <div class="divider"></div>
                 <a href="{% url 'new_post' city.id %}">
                     <button class="edit-btn btn add-btn" type="button">+</button>
                 </a>
             </div>
-        </div>
-
         <!-- POST CONTAINER -->
         <div class="city-bottom">
             <div class="all-posts">
@@ -64,58 +52,7 @@
             </div>
         </div>
     </div>
-
 </div>
-    
+
 {% endblock %}
-    
-
-
-
-
-{% comment %} Addonis {% endcomment %}
-
-        {% comment %} 
-        <div class="album py-5 bg-light">
-                <div class="container">
-            
-                  <div class="row justify-content-center align-items-center">
-                        {% for post in posts%}
-                        <a href="{% url 'post' post.id %}">
-                        <div class="col-12 col-md-6 col-sm-6 col-lg-6 col-md-4">
-                            <div class="card mb-4 shadow-sm">
-                                <img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="post-card-title">{{post.title}}</h5>
-                                    <small><strong>Updated: {{ post.updated }}</strong></small>
-                                    <p class="card-text">{{post.body}}</p>
-                                </div>
-                            </div>
-                        </div>
-                        </a>{% endfor %}
-                    </div>
-                </div>
-            </div> 
-            
-            
-
-
-SAMPLE DATA
-    
- {% for post in posts %}
-<a href="{% url 'post' post.id %}">
-    <img src="../static/images/rio.jpg" alt="">     
-        <h1>{{ post.title }}</h1>
-    <div>City: {{ post.city }}</div>
-    <div>Date created: {{ post.created }}</div>
-    <div>Date updated: {{ post.updated }}</div>
-    <div>Author: {{ post.user.username }}</div>
-    <p>{{ post.body }}</p>
-</a>
-{% endfor %}
-
-<a href="{% url 'new_post' city.id %}">
-    <button class="btn" type="button">New Post About This City</button>
-</a> 
-
-{% endcomment %}
+  
