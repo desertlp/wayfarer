@@ -37,15 +37,15 @@ def signup(request):
     return render(request, 'registration/signup.html', {'form': form})
 
 
-
-
-
-
-
-
 # @login_required
 def profile(request): 
-    return render(request, 'profile/profile.html')
+    posts = Post.objects.filter(user=request.user)
+    print(posts)
+    context = {
+        'posts': posts
+    }
+    return render(request, 'profile/profile.html', context)
+
 # @login_required
 def edit_profile(request):
   if request.method == 'POST':
@@ -55,6 +55,7 @@ def edit_profile(request):
               uform.save()
               pform.save()
               return redirect('profile')
+              print(post)
   else:
         uform = UserUpdateForm(instance=request.user)
         pform = ProfileUpdateForm(instance=request.user.profile)
