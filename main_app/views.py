@@ -73,11 +73,7 @@ def about(request):
 
 def cities(request):
     # return HttpResponse('cities')
-<<<<<<< HEAD
     return redirect('city', city_id=3)
-=======
-    return redirect('city', city_id=2)
->>>>>>> submaster
 
 def city(request, city_id): 
     side_bar_cities = City.objects.all()
