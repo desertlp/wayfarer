@@ -30,21 +30,17 @@
     <div class="city-show-conatiner">
         <!-- CITY IMAGE -->
         <div class="city-img-container">
+            {% comment %} <p>{{ city.img_url }}</p> {% endcomment %}
             <img class="city-img" src="{% static 'images/san_francisco.jpg' %}" alt="{{ city.name }}">
         </div>
         <!-- CITY TOP HALF -->
-        <div class="city-top">
             <div class="city-details">
                 <p class="city-title profile-h5">{{ city.name }}</p>
-                <p><strong>Latitude:</strong>{{ city.latitude }} N</p>
-                <p><strong>longitude:</strong>{{ city.longitude }} W</p>
-                {% comment %} <p>{{ city.img_url }}</p> {% endcomment %}
+                <div class="divider"></div>
                 <a href="{% url 'new_post' city.id %}">
                     <button class="edit-btn btn add-btn" type="button">+</button>
                 </a>
             </div>
-        </div>
-
         <!-- POST CONTAINER -->
         <div class="city-bottom">
             <div class="all-posts">
@@ -63,9 +59,7 @@
             </div>
         </div>
     </div>
-
 </div>
-    
 {% endblock %}
     
 
