@@ -16,6 +16,7 @@
                     <h5 class="profile-h5">Welcome, {{ user.username }}!</h5>
                 </div>
                 <div class="card-body">
+                    <div class="card-title"><strong>Last Name: </strong> {{ user.profile.home_city }}</div>
                     <div class="card-title"><strong>Hometown:</strong> {{ user.profile.home_city }}</div>
                     <div class="card-title"><strong>Email:</strong> {{ user.email }}</div>
                     <p class="card-text"><!--maybe add more info?--></p>
