@@ -4,30 +4,37 @@
 {% load static %}
     <div class="main-container-1">
         <div class="profile-container">
-
+            <!-- USER IMAGE -->
             <div class="">
                 {% comment %} <img class="profile-img" src="https://cdn.britannica.com/36/162636-050-932C5D49/Colosseum-Rome-Italy.jpg" alt="Image"> {% endcomment %}
                 <img class="profile-img" src=" {{ user.profile.image.url }}">
                 {% comment %} <img class="profile-img" src="{% static 'images/default.jpg' %}" alt="Image"> {% endcomment %}
-                
             </div>
+            <!-- PROFILE DETAILS CARD -->
             <div class="card bg-light">
+                <!-- PROFILE HEADER -->
                 <div class="card-header">
-                    <h5 class="profile-h5">Welcome, {{ user.username }}!</h5>
+                    <h5 class="profile-h5 animate__animated animate__fadeIn">Welcome, {{ user.username }}!</h5>
                 </div>
+                <!-- PROFILE DETAILS -->
                 <div class="card-body">
+                    <div class="card-title"><strong>First Name: </strong> {{ user.first_name }}</div>
+                    <div class="card-title"><strong>Last Name: </strong> {{ user.last_name }}</div>
                     <div class="card-title"><strong>Hometown:</strong> {{ user.profile.home_city }}</div>
                     <div class="card-title"><strong>Email:</strong> {{ user.email }}</div>
-                    <p class="card-text"><!--maybe add more info?--></p>
                 </div>
-                <a href="{% url 'edit_profile' %}">
-                    <button id="profile-edit-btn" class="edit-btn" type="button" >Edit Profile</button>
-                </a>
+                <!-- EDIT PROFILE BUTTON -->
+                <div class="edit-profile-button-container">
+                    <a href="{% url 'edit_profile' %}">
+                        <button id="profile-edit-btn" class="edit-btn" type="button">Edit Profile</button>
+                    </a>
+                </div>
             </div>
-
         </div>
-        <div class="all-posts animate__animated animate__fadeInUp">
-        {% for post in posts%}
+        <!-- USER POSTS -->
+        {% if posts.count %}
+        <div class="profile-posts">
+        {% for post in posts %}
             <a href= {% url 'post' post.id %}>
                 <div class="post-card card" style="width: 18rem;">
                     <img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap">
@@ -39,35 +46,12 @@
                 </div>
             </a>
         {% endfor %}
+        <!-- NO POSTS -->
+        {% else %}
+        <div class="empty-posts-container">
+            <p class="empty-posts-message animate__animated animate__fadeInUp">You have no recent posts.</p>
         </div>
-
-
-        {% comment %} <div class="profile-container"> 
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{% static 'images/london.jpg' %}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Post</h5>
-                    <p class="card-text">Saepe eum pariatur exercitationem a impedit et, exercitationem ullam dolores nisi inventore minus optio, maxime inventore doloribus facere eveniet voluptas, commodi repellendus reiciendis deserunt cupiditate similique esse delectus molestiae facere fugiat.</p>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="../static/images/rome.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Post</h5>
-                    <p class="card-text">Saepe eum pariatur exercitationem a impedit et, exercitationem ullam dolores nisi inventore minus optio, maxime inventore doloribus facere eveniet voluptas, commodi repellendus reiciendis deserunt cupiditate.</p>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="../static/images/tokyo.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Post</h5>
-                    <p class="card-text">Saepe eum pariatur exercitationem a impedit et, exercitationem ullam dolores nisi inventore minus optio, maxime inventore doloribus facere eveniet voluptas.</p>
-                </div>
-            </div>
+        {% endif %}
         </div>
-    </div> {% endcomment %}
-    
-
-
 
 {% endblock %}

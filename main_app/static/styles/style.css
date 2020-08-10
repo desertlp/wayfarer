@@ -14,7 +14,7 @@ Universal
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 90vw;
+    width: 100vw;
     background: #40515D;
     margin-left: auto;
     margin-right: auto 
@@ -57,10 +57,6 @@ main::after{
     height: 40px;
 }
 
-  
-
-
-
 /********************************************************************************************************** 
 NAV 
 */
@@ -70,7 +66,6 @@ nav {
 }
 
 .navbar-light {
-    
     background: #011627 ;
     color: #FDFFFC;
 }
@@ -111,11 +106,6 @@ border-style: hidden;
 CAROUSEL 
 */
 
-/* .carousel {
-    width:640px;
-    height:360px;
-} */
-
 .carousel-container {
     display: flex; 
     align-items: center;
@@ -137,22 +127,49 @@ CAROUSEL
 /********************************************************************************************************** 
 Profile 
 */
+
 .profile-container{
     display: flex;
     flex-direction: row;
     justify-content: center;
     margin-top: 20px;
-    text-align: center;
+    /* text-align: center; */
+    width: 60vw; 
 }
 
-.all-posts{
+.all-posts {
+    width: 66vw;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: row;
     min-height: 40vh;
     align-content: space-between;
     flex-wrap: wrap;
-    /* margin-left: 20vw; */
+}
+
+.profile-posts {
+    min-height: 45vh;
+    width: 59vw; 
+    display: flex; 
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #011627;
+    border-radius: 4px; 
+}
+
+.empty-posts-container {
+    height: 39vh; 
+    width: 59vw; 
+    background-color: #011627; 
+    text-align: center; 
+    border-radius: 4px; 
+}
+
+.empty-posts-message {
+    color: white; 
+    padding-top: 17vh; 
+    font-size: 20px; 
 }
 
 .profile-img{
@@ -174,7 +191,7 @@ text-align: center;
 }
 
 .card-header {
-    text-align: center; 
+    justify-content: center;
 }
 
 .card {
@@ -185,7 +202,8 @@ text-align: center;
 .post-card{
     height: 33vh !important;
     /* max-height: 30vh; */
-    height:30vh;
+    height: 30vh;
+    margin: 4vh 1vw 0 1vw; 
 }
 
 .card-img-top{
@@ -198,8 +216,8 @@ text-align: center;
 .card-body{
     overflow: hidden;
     text-overflow: clip;
-    
 }
+
 
 /* EDIT PROFILE */
 
@@ -284,6 +302,7 @@ CITIES
 }
 
 .city-bottom{
+    background-color: #011627; 
     display: flex;
     flex-direction: row;
     /* align-content: flex-end; */
@@ -327,6 +346,22 @@ FORMS
 .sign-up-header {
     font-size: 50px; 
     margin: 0 0 10px 0; 
+}
+
+.add-post-header-container {
+    text-align: center;
+}
+
+.add-post-header {
+    color: black; 
+    margin-top: 40px; 
+}
+
+.add-post-form-container {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    height: 75vh; 
 }
 
 /********************************************************************************************************** 
@@ -457,7 +492,7 @@ Post
 
 .message-alert {
     font-size: 25px; 
-    padding: 5px 0 5px 0; 
+    padding: 5px 0 10px 0; 
     color: white; 
 }
 
@@ -586,8 +621,6 @@ button:hover, a:hover {
     padding-right: 5px;
 }
 
-
-
 /********************************************************************************************************** 
 MEDIA QUERY
 */
@@ -685,12 +718,16 @@ MEDIA QUERY
     
     .card {
         width: 300px;
-        height: 225px;
-        margin: 10px;
+        height: 350px;
+        /* margin: 10px; */
     }
     
     .card-img-top{
         height: 20vh;
+    }
+
+    .card-body {
+        height: 30vh; 
     }
 
   }

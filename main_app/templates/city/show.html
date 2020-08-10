@@ -37,6 +37,7 @@
         <!-- POST CONTAINER -->
         <div class="city-bottom">
             <div class="all-posts">
+                {% if posts.count %}
                 {% for post in posts%}
                     <a href= "{% url 'post' post.id %}">
                         <div class="post-card card animate__animated animate__fadeInUp" style="width: 18rem;">
@@ -50,6 +51,9 @@
                         </div>
                     </a>
                 {% endfor %}
+                {% else %}
+                <p class="empty-posts-message animate__animated animate__fadeInUp">There are no posts for this city.</p>
+                {% endif %}
             </div>
         </div>
     </div>
