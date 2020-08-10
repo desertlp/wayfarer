@@ -174,7 +174,7 @@ text-align: center;
 }
 
 .card-header {
-    text-align: center; 
+    justify-content: center;
 }
 
 .card {
@@ -198,8 +198,8 @@ text-align: center;
 .card-body{
     overflow: hidden;
     text-overflow: clip;
-    
 }
+
 
 /* EDIT PROFILE */
 
