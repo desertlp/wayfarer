@@ -69,9 +69,11 @@ nav {
     background: #011627 ;
     color: #FDFFFC;
 }
+
 .navbar-light .navbar-brand {
     color: #FDFFFC;
 }
+
 .navbar-light .navbar-brand:hover {
     color: #FF00FF;
 }
@@ -82,8 +84,8 @@ nav {
 
 .navbar-light .navbar-nav .nav-link:hover {
     color: #FF00FF;
-  }
-  
+}
+
 .navbar-toggler-icon{
     margin-bottom: 15px;
 }
@@ -92,7 +94,7 @@ nav {
 .custom-toggler .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,0 ,255, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
-  
+
 /* .custom-toggler.navbar-toggler {
 border-style: hidden;
 }  */
@@ -100,7 +102,6 @@ border-style: hidden;
 .navbar-toggler{
     border-style: none;
 }
-
 
 /********************************************************************************************************** 
 CAROUSEL 
@@ -143,13 +144,9 @@ Profile
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    min-height: 43vh;
+    min-height: 40vh;
     align-content: space-between;
     flex-wrap: wrap;
-<<<<<<< HEAD
-    /* margin-top: 3vh; */
-    /* margin-left: 20vw; */
-=======
 }
 
 .profile-posts {
@@ -174,17 +171,12 @@ Profile
     color: white; 
     padding-top: 17vh; 
     font-size: 20px; 
->>>>>>> sub-master
-}
-
-.profile-all-posts{
-    margin-top: 3vh;
 }
 
 .profile-img{
     border: 1px solid #ddd;
     border-radius: 4px;
-    width: 43vw;
+    width: 30vw;
     height: 22.5vw;
     margin: 10px;	
     /* object-fit: cover; */
@@ -204,10 +196,11 @@ text-align: center;
 }
 
 .card {
-    width: 40vw;
+    width: 30vw;
     height: 22.5vw;
     margin: 10px;
 }
+
 .post-card{
     height: 33vh !important;
     /* max-height: 30vh; */
@@ -226,7 +219,6 @@ text-align: center;
     overflow: hidden;
     text-overflow: clip;
 }
-
 
 /* EDIT PROFILE */
 
@@ -254,7 +246,6 @@ text-align: center;
     color: #00d1b2;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 10px;
 }
 
 .card-text{
@@ -339,7 +330,6 @@ FORMS
     display: flex; 
     justify-content: center;
     align-items: center;
-
 }
 
 .form-panel {
@@ -594,14 +584,14 @@ ABOUT
     text-align: center;
     background-size: cover;
   }
-  
+
 .title {
     font-size: 25px;
     text-decoration: underline; 
     padding-top: 15px;
     color: #40515D;
 }
-  
+
 p button {
     border: none;
     outline: 0;
@@ -614,13 +604,13 @@ p button {
     width: 100%;
     font-size: 18px;
 }
-  
+
 .about-card a {
     text-decoration: none;
     font-size: 22px;
     color: black;
 }
-  
+
 button:hover, a:hover {
     opacity: 0.7;
 }
@@ -634,6 +624,7 @@ button:hover, a:hover {
 /********************************************************************************************************** 
 MEDIA QUERY
 */
+
 @media screen and (max-width: 1087px) {
     .main-container-1 {
         display: flex;
@@ -643,6 +634,7 @@ MEDIA QUERY
         margin-left: auto;
         margin-right: auto 
     } 
+
     .profile-container{
         display: inline-block; 
         margin-top: 5px;
@@ -662,41 +654,50 @@ MEDIA QUERY
         height: 45vw;
         margin: 10px;	
     }
-    
+
     .card {
         width: 60vw;
         height: 45vw;
         margin: 10px;
     }
-    
+
     .card-img-top{
         height: 40px;
     } 
   }
 
 @media screen and (max-width: 375px) {
+
     /* HOME PAGE */
+
     h1 {
       font-size: 30px;
     }
+
     .carousel-item-name {
         font-size: 25px; 
     }
+
     .navbar-toggler {
         color: white; 
     }
+
     .body-container {
         height: 60vh; 
         display: inline-block; 
     }
+
     .paragraph-container {
         width: 100vw; 
         height: 20vh; 
     }
+
     footer {
         position: relative; 
     }
+
     /* PROFILE */
+
     .main-container-1 {
         display: flex;
         flex-direction: column;
@@ -706,11 +707,12 @@ MEDIA QUERY
         margin-left: auto;
         margin-right: auto 
     } 
+
     .profile-container{
         display: inline-block; 
         margin-top: 5px;
     }
-    
+
     .all-posts{
         display: flex;
         align-items: center;
@@ -725,20 +727,18 @@ MEDIA QUERY
         height: 225px;
         margin: 5px;	
     }
-    
+
     .card {
         width: 300px;
         height: 350px;
         /* margin: 10px; */
     }
-    
+
     .card-img-top{
-        height: 20vh;
+        height: 5vh;
     }
 
     .card-body {
         height: 30vh; 
     }
-
   }
-
