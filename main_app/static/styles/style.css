@@ -14,7 +14,7 @@ Universal
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 90vw;
+    width: 100vw;
     background: #40515D;
     margin-left: auto;
     margin-right: auto 
@@ -56,10 +56,6 @@ main::after{
     display: block;
     height: 40px;
 }
-
-  
-
-
 
 /********************************************************************************************************** 
 NAV 
@@ -111,11 +107,6 @@ border-style: hidden;
 CAROUSEL 
 */
 
-/* .carousel {
-    width:640px;
-    height:360px;
-} */
-
 .carousel-container {
     display: flex; 
     align-items: center;
@@ -137,22 +128,47 @@ CAROUSEL
 /********************************************************************************************************** 
 Profile 
 */
+
 .profile-container{
     display: flex;
     flex-direction: row;
     justify-content: center;
     margin-top: 20px;
-    text-align: center;
+    /* text-align: center; */
+    width: 60vw; 
 }
 
-.all-posts{
+.all-posts {
+    width: 66vw;
     display: flex;
     align-items: center;
     flex-direction: row;
     min-height: 40vh;
     align-content: space-between;
     flex-wrap: wrap;
-    /* margin-left: 20vw; */
+}
+
+.profile-posts {
+    width: 59vw; 
+    display: flex; 
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #011627;
+    border-radius: 4px; 
+}
+
+.empty-posts-container {
+    height: 39vh; 
+    width: 59vw; 
+    background-color: #011627; 
+    text-align: center; 
+    border-radius: 4px; 
+}
+
+.empty-posts-message {
+    color: white; 
+    padding-top: 17vh; 
+    font-size: 20px; 
 }
 
 .profile-img{
@@ -586,8 +602,6 @@ button:hover, a:hover {
     padding-right: 5px;
 }
 
-
-
 /********************************************************************************************************** 
 MEDIA QUERY
 */
@@ -609,6 +623,7 @@ MEDIA QUERY
         display: flex;
         align-items: center;
         flex-direction: column;
+        width: 
         min-height: 40vh;
     }
 
