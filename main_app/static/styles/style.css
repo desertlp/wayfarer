@@ -5,10 +5,6 @@ Universal
     box-sizing: border-box;
 }
 
-/* body {
-    padding: 0;
-    margin: 0;
-} */
 
 .main-container-1 {
     display: flex;
@@ -28,11 +24,6 @@ Universal
     color: #EDF2F4;
 }
 
-/* #profile-edit-btn{
-    position: absolute;
-    left: 15px;
-    bottom: 15px;
-} */
 
 body, html{
     min-height: 100%;
@@ -43,13 +34,6 @@ main{
     min-height: 100%;
     margin-bottom: -40px;
 }
-
-/* main {
-    width: 100vw;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;  
-} */
 
 main::after{
     content: "";
@@ -94,10 +78,6 @@ nav {
 .custom-toggler .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,0 ,255, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
-
-/* .custom-toggler.navbar-toggler {
-border-style: hidden;
-}  */
 
 .navbar-toggler{
     border-style: none;
@@ -203,7 +183,6 @@ text-align: center;
 
 .post-card{
     height: 33vh !important;
-    /* max-height: 30vh; */
     height: 30vh;
     margin: 4vh 1vw 0 1vw; 
 }
@@ -306,9 +285,7 @@ CITIES
     background-color: #011627; 
     display: flex;
     flex-direction: row;
-    /* align-content: flex-end; */
     justify-content: center;
-    /* overflow: ; */
 }
 
 .add-btn {
@@ -391,7 +368,6 @@ h1 {
     align-items: center;
     justify-content: center;
     background-color: #011627;
-    /* height: 220px;  */
     height: 32vh; 
 }
 
@@ -516,7 +492,6 @@ CITIES INDEX
 /* SIDEBAR */
 
 .sidebar-container {
-    /* max-width: 20vw;  */
     width: 20vw; 
     min-height: 88vh; 
     background-color: #011627; 
@@ -740,7 +715,6 @@ MEDIA QUERY
     .card {
         width: 300px;
         height: 350px;
-        /* margin: 10px; */
     }
 
     .card-img-top{

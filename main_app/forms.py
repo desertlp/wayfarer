@@ -13,7 +13,6 @@ class SignUpForm(UserCreationForm):
         if User.objects.filter(email=self.cleaned_data['email']).exists():
             raise forms.ValidationError("This email already exists.")
         return self.cleaned_data['email']
-        # default is required = True
     class Meta:
         model = User
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
@@ -22,7 +21,6 @@ class UserUpdateForm(forms.ModelForm):
     first_name = forms.CharField(max_length=30)
     last_name = forms.CharField(max_length=30)
     email = forms.EmailField(max_length=250)
-        # default is required = True
     class Meta:
         model = User
         fields = ('username', 'first_name', 'last_name', 'email')

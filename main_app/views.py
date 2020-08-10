@@ -20,10 +20,7 @@ def signup(request):
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})
 
-
-
-
-# @login_required
+@login_required
 def profile(request): 
     posts = Post.objects.filter(user=request.user)
     print(posts)
@@ -32,7 +29,7 @@ def profile(request):
     }
     return render(request, 'profile/profile.html', context)
 
-# @login_required
+@login_required
 def edit_profile(request):
   if request.method == 'POST':
         uform = UserUpdateForm(request.POST, instance=request.user)
@@ -50,18 +47,14 @@ def edit_profile(request):
   }
   return render(request, 'profile/edit.html', context)
 
-# HOME PAGE 
 def home(request): 
     return render(request, 'home.html')
 
 def about(request): 
     return render(request, 'about.html')
 
-
 def cities(request):
-    # return redirect('city', city_id=2)
     return redirect('city', city_id=3)
-
 
 def city(request, city_id): 
     side_bar_cities = City.objects.all().order_by('name')
@@ -74,11 +67,8 @@ def city(request, city_id):
     }
     print(posts)
     return render(request, 'city/show.html', context)
-    # return HttpResponse('cities')
 
-
-# @login_required
-# this should go on a city_id page 
+@login_required
 def new_post(request, city_id):
     if request.method == 'POST':
         submitted_new_post_form = PostForm(request.POST, request.FILES)
@@ -93,7 +83,7 @@ def new_post(request, city_id):
         new_post_form = PostForm()
         return render(request, 'post/new.html', {'form': new_post_form})
 
-# @login_required
+@login_required
 def post(request, post_id): 
     post = Post.objects.get(id=post_id)
     context = {
@@ -101,7 +91,7 @@ def post(request, post_id):
     }
     return render(request, 'post/show.html', context)
 
-# @login_required
+@login_required
 def edit_post(request, post_id):
     post = Post.objects.get(id=post_id) 
     form = PostForm(instance=post)
@@ -122,7 +112,7 @@ def edit_post(request, post_id):
     }
     return render(request, 'post/edit.html', {'form': form})
 
-# @login_required
+@login_required
 def delete_post(request, post_id):
     post = Post.objects.get(id=post_id)
     if request.user == post.user:

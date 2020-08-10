@@ -6,4 +6,3 @@ class MainAppConfig(AppConfig):
 
     def ready(self):
         import users.signals
-            # this is the django recommended way

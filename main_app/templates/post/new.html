@@ -7,10 +7,8 @@
     <!-- FORM: ADD NEW POST -->
     <div class="add-post-form-container">
         <form method="POST" enctype="multipart/form-data">
-            {% comment %} if we dont provide and action (path) the form will submit to the current path {% endcomment %}
             {% csrf_token%}
             {{ form.as_p }}
-                {% comment %} wraps each field in a paragraph tag and displays it on the page {% endcomment %}
             <button class="edit-btn btn" type="submit">Create New Post</button>
         </form>
     </div>

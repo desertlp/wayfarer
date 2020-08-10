@@ -13,9 +13,7 @@ class Profile(models.Model):
     def __str__(self): 
         return f"{self.user.username} Profile"
     
-    # def save(self): 
     def save(self, *args, **kwargs): 
-        # keeps us from having gigantic files uploaded to our db and making our site run super slow
         super(Profile, self).save(*args, **kwargs)
         
         img = Image.open(self.image.path)
