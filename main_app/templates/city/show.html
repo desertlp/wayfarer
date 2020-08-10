@@ -43,6 +43,7 @@
                             <img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="post-card-title">{{post.title}}</h5>
+                                <small><strong>Created by: {{ post.user.username }}</strong></small></br>
                                 <small><strong>Updated: {{ post.updated }}</strong></small>
                                 <p class="card-text">{{post.body}}</p>
                             </div>
