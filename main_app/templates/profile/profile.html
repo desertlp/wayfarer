@@ -33,7 +33,7 @@
         </div>
         <!-- USER POSTS -->
         {% if posts.count %}
-        <div class="profile-posts animate__animated animate__fadeInUp">
+        <div class="profile-posts">
         {% for post in posts %}
             <a href= {% url 'post' post.id %}>
                 <div class="post-card card" style="width: 18rem;">
@@ -49,7 +49,7 @@
         <!-- NO POSTS -->
         {% else %}
         <div class="empty-posts-container">
-            <p class="empty-posts-message animate__animated animate__heartBeat">You have no recent posts.</p>
+            <p class="empty-posts-message animate__animated animate__fadeInUp">You have no recent posts.</p>
         </div>
         {% endif %}
         </div>

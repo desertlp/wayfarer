@@ -66,7 +66,6 @@ nav {
 }
 
 .navbar-light {
-    
     background: #011627 ;
     color: #FDFFFC;
 }
@@ -142,6 +141,7 @@ Profile
     width: 66vw;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: row;
     min-height: 40vh;
     align-content: space-between;
@@ -149,6 +149,7 @@ Profile
 }
 
 .profile-posts {
+    min-height: 45vh;
     width: 59vw; 
     display: flex; 
     justify-content: center;
@@ -201,7 +202,8 @@ text-align: center;
 .post-card{
     height: 33vh !important;
     /* max-height: 30vh; */
-    height:30vh;
+    height: 30vh;
+    margin: 4vh 1vw 4vh 1vw; 
 }
 
 .card-img-top{
@@ -300,6 +302,7 @@ CITIES
 }
 
 .city-bottom{
+    background-color: #011627; 
     display: flex;
     flex-direction: row;
     /* align-content: flex-end; */
@@ -623,7 +626,6 @@ MEDIA QUERY
         display: flex;
         align-items: center;
         flex-direction: column;
-        width: 
         min-height: 40vh;
     }
 
@@ -700,12 +702,16 @@ MEDIA QUERY
     
     .card {
         width: 300px;
-        height: 225px;
-        margin: 10px;
+        height: 350px;
+        /* margin: 10px; */
     }
     
     .card-img-top{
         height: 20vh;
+    }
+
+    .card-body {
+        height: 30vh; 
     }
 
   }
