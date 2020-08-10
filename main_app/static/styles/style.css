@@ -203,7 +203,7 @@ text-align: center;
     height: 33vh !important;
     /* max-height: 30vh; */
     height: 30vh;
-    margin: 4vh 1vw 4vh 1vw; 
+    margin: 4vh 1vw 0 1vw; 
 }
 
 .card-img-top{
@@ -346,6 +346,22 @@ FORMS
 .sign-up-header {
     font-size: 50px; 
     margin: 0 0 10px 0; 
+}
+
+.add-post-header-container {
+    text-align: center;
+}
+
+.add-post-header {
+    color: black; 
+    margin-top: 40px; 
+}
+
+.add-post-form-container {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    height: 75vh; 
 }
 
 /********************************************************************************************************** 
