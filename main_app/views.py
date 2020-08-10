@@ -59,8 +59,8 @@ def about(request):
 
 
 def cities(request):
-    return redirect('city', city_id=2)
-    # return redirect('city', city_id=3)
+    # return redirect('city', city_id=2)
+    return redirect('city', city_id=3)
 
 
 def city(request, city_id): 

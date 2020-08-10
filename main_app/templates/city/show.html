@@ -45,8 +45,8 @@
                             <div class="card-body">
                                 <h5 class="post-card-title">{{post.title}}</h5>
                                 <small><strong>Created by: {{ post.user.username }}</strong></small></br>
-                                <small><strong>Updated: {{ post.updated }}</strong></small>
-                                <p class="card-text">{{post.body}}</p>
+                                <small><strong>Updated: {{ post.updated|timesince }} ago</strong></small>
+                                <p class="card-text">{{post.body|truncatechars:120}}</p>
                             </div>
                         </div>
                     </a>

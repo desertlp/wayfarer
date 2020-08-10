@@ -22,12 +22,12 @@
                     <div class="card-title"><strong>Last Name: </strong> {{ user.last_name }}</div>
                     <div class="card-title"><strong>Hometown:</strong> {{ user.profile.home_city }}</div>
                     <div class="card-title"><strong>Email:</strong> {{ user.email }}</div>
-                </div>
-                <!-- EDIT PROFILE BUTTON -->
-                <div class="edit-profile-button-container">
-                    <a href="{% url 'edit_profile' %}">
-                        <button id="profile-edit-btn" class="edit-btn" type="button">Edit Profile</button>
-                    </a>
+                    <!-- EDIT PROFILE BUTTON -->
+                    <div class="edit-profile-button-container">
+                        <a href="{% url 'edit_profile' %}">
+                            <button id="profile-edit-btn" class="edit-btn" type="button">Edit Profile</button>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -36,12 +36,12 @@
         <div class="profile-posts">
         {% for post in posts %}
             <a href= {% url 'post' post.id %}>
-                <div class="post-card card" style="width: 18rem;">
+                <div class="post-card card card animate__animated animate__fadeInUp" style="width: 18rem;">
                     <img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="post-card-title">{{post.title}}</h5>
-                        <small><strong>Updated: {{ post.updated }}</strong></small>
-                        <p class="card-text">{{post.body}}</p>
+                        <small><strong>Updated: {{ post.updated|timesince }} ago</strong></small>
+                        <p class="card-text">{{post.body|truncatechars:150}}</p>
                     </div>
                 </div>
             </a>
