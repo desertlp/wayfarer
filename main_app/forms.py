@@ -11,21 +11,12 @@ class SignUpForm(UserCreationForm):
     email = forms.EmailField(max_length=250)
     def clean_email(self):
         if User.objects.filter(email=self.cleaned_data['email']).exists():
-            raise forms.ValidationError("the given email is already registered")
+            raise forms.ValidationError("This email already exists.")
         return self.cleaned_data['email']
         # default is required = True
     class Meta:
         model = User
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
-
-# Derek's form inheriting from ModelForm     
-# class SignUpForm(forms.ModelForm): 
-#     password = forms.CharField(widget=forms.PasswordInput)
-#     password2 = forms.CharField(widget=forms.PasswordInput(attrs={'label': 'Confirm Password'}))
-
-#     class Meta: 
-#         model = User 
-#         fields = ['username', 'first_name', 'last_name', 'email', 'password', 'password2']
     
 class UserUpdateForm(forms.ModelForm):
     first_name = forms.CharField(max_length=30)

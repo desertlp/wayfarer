@@ -37,18 +37,23 @@
         <!-- POST CONTAINER -->
         <div class="city-bottom">
             <div class="all-posts">
+                {% if posts.count %}
                 {% for post in posts%}
                     <a href= "{% url 'post' post.id %}">
                         <div class="post-card card animate__animated animate__fadeInUp" style="width: 18rem;">
                             <img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="post-card-title">{{post.title}}</h5>
-                                <small><strong>Updated: {{ post.updated }}</strong></small>
-                                <p class="card-text">{{post.body}}</p>
+                                <small><strong>Created by: {{ post.user.username }}</strong></small></br>
+                                <small><strong>Updated: {{ post.updated|timesince }} ago</strong></small>
+                                <p class="card-text">{{post.body|truncatechars:120}}</p>
                             </div>
                         </div>
                     </a>
                 {% endfor %}
+                {% else %}
+                <p class="empty-posts-message animate__animated animate__fadeInUp">There are no posts for this city.</p>
+                {% endif %}
             </div>
         </div>
     </div>
