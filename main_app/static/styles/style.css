@@ -586,6 +586,44 @@ button:hover, a:hover {
     padding-right: 5px;
 }
 
+/********************************************************************************************************** 
+Comment Section 
+*/
+
+.comment-container {
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+
+}
+
+.media-body {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 20px;
+}
+
+.comment-wrapper .panel-body {
+    max-height:650px;
+    overflow:auto;
+    width:80vw;
+}
+
+.comment-wrapper .media-list .media img {
+    width:64px;
+    height:64px;
+    border:2px solid #e5e7e8;
+}
+
+.comment-wrapper .media-list .media {
+    border-bottom:1px dashed #efefef;
+    margin-bottom:25px;
+}
+        
 
 
 /********************************************************************************************************** 
@@ -694,4 +732,11 @@ MEDIA QUERY
     }
 
   }
+
+
+
+
+
+
+
 
