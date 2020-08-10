@@ -22,12 +22,12 @@
                     <div class="card-title"><strong>Last Name: </strong> {{ user.last_name }}</div>
                     <div class="card-title"><strong>Hometown:</strong> {{ user.profile.home_city }}</div>
                     <div class="card-title"><strong>Email:</strong> {{ user.email }}</div>
-                </div>
-                <!-- EDIT PROFILE BUTTON -->
-                <div class="edit-profile-button-container">
-                    <a href="{% url 'edit_profile' %}">
-                        <button id="profile-edit-btn" class="edit-btn" type="button">Edit Profile</button>
-                    </a>
+                    <!-- EDIT PROFILE BUTTON -->
+                    <div class="edit-profile-button-container">
+                        <a href="{% url 'edit_profile' %}">
+                            <button id="profile-edit-btn" class="edit-btn" type="button">Edit Profile</button>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
