@@ -87,7 +87,7 @@ def new_post(request, city_id):
             post.user_id = request.user.id
             post.city_id = city_id
             post.save()
-            messages.success(request, "Post created!")
+            messages.success(request, f"Post created successfully on {post.city.name}!")
             return redirect('post', post.id)
     else: 
         new_post_form = PostForm()
