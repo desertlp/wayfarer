@@ -50,7 +50,6 @@ def edit_profile(request):
   }
   return render(request, 'profile/edit.html', context)
 
-# HOME PAGE 
 def home(request): 
     return render(request, 'home.html')
 
@@ -60,7 +59,6 @@ def about(request):
 
 def cities(request):
     return redirect('city', city_id=2)
-    # return redirect('city', city_id=3)
 
 
 def city(request, city_id): 
@@ -74,11 +72,10 @@ def city(request, city_id):
     }
     print(posts)
     return render(request, 'city/show.html', context)
-    # return HttpResponse('cities')
+
 
 
 # @login_required
-# this should go on a city_id page 
 def new_post(request, city_id):
     if request.method == 'POST':
         submitted_new_post_form = PostForm(request.POST, request.FILES)
